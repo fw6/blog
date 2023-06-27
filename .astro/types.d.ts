@@ -199,41 +199,125 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"first-post.md": {
-	id: "first-post.md";
-  slug: "first-post";
+"200-Learning/210-Programing/CSS.md": {
+	id: "200-Learning/210-Programing/CSS.md";
+  slug: "200-learning/210-programing/css";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"markdown-style-guide.md": {
-	id: "markdown-style-guide.md";
-  slug: "markdown-style-guide";
+"200-Learning/210-Programing/General.md": {
+	id: "200-Learning/210-Programing/General.md";
+  slug: "200-learning/210-programing/general";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"second-post.md": {
-	id: "second-post.md";
-  slug: "second-post";
+"200-Learning/210-Programing/JS.md": {
+	id: "200-Learning/210-Programing/JS.md";
+  slug: "200-learning/210-programing/js";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"third-post.md": {
-	id: "third-post.md";
-  slug: "third-post";
+"200-Learning/210-Programing/Web.md": {
+	id: "200-Learning/210-Programing/Web.md";
+  slug: "200-learning/210-programing/web";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"using-mdx.mdx": {
-	id: "using-mdx.mdx";
-  slug: "using-mdx";
+"Calendar/2023 书单.md": {
+	id: "Calendar/2023 书单.md";
+  slug: "calendar/2023-书单";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
-} & { render(): Render[".mdx"] };
+} & { render(): Render[".md"] };
+"Calendar/2023 目标.md": {
+	id: "Calendar/2023 目标.md";
+  slug: "calendar/2023-目标";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Calendar/Daily notes/2023-02-11.md": {
+	id: "Calendar/Daily notes/2023-02-11.md";
+  slug: "calendar/daily-notes/2023-02-11";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Calendar/Weekly/2023-W-6.md": {
+	id: "Calendar/Weekly/2023-W-6.md";
+  slug: "calendar/weekly/2023-w-6";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/Daily Reading/1.md.md": {
+	id: "Extras/Daily Reading/1.md.md";
+  slug: "extras/daily-reading/1md";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/个人资产/工作/代码库收集/GitHub.md": {
+	id: "Extras/个人资产/工作/代码库收集/GitHub.md";
+  slug: "extras/个人资产/工作/代码库收集/github";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/个人资产/工作/学习文档/效率工具.md": {
+	id: "Extras/个人资产/工作/学习文档/效率工具.md";
+  slug: "extras/个人资产/工作/学习文档/效率工具";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/个人资产/工作/学习文档/面试手册.md": {
+	id: "Extras/个人资产/工作/学习文档/面试手册.md";
+  slug: "extras/个人资产/工作/学习文档/面试手册";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/个人资产/工作/富文本编辑器/ProseMirror.md": {
+	id: "Extras/个人资产/工作/富文本编辑器/ProseMirror.md";
+  slug: "extras/个人资产/工作/富文本编辑器/prosemirror";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/个人资产/生活/买房🏠.md": {
+	id: "Extras/个人资产/生活/买房🏠.md";
+  slug: "extras/个人资产/生活/买房";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/个人资产/生活/蜜月旅行🏝️.md": {
+	id: "Extras/个人资产/生活/蜜月旅行🏝️.md";
+  slug: "extras/个人资产/生活/蜜月旅行️";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Extras/个人资产/生活/驾考.md": {
+	id: "Extras/个人资产/生活/驾考.md";
+  slug: "extras/个人资产/生活/驾考";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"README.md": {
+	id: "README.md";
+  slug: "readme";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 };
 
 	};

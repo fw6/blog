@@ -1,0 +1,4 @@
+[submodule "src/content/blog"]
+	path = src/content/blog
+	url = git@github.com:fw6/obsidian-blogs.git
+    branch = blog
