@@ -35,15 +35,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Set Git config
-        run: |
-            git config --local user.email "actions@github.com"
-            git config --local user.name "Github Actions"
-
-      - name: Sycn Submodules
-        run: |
-            git submodule update --init --recursive --remote
+        with:
+            submodules: 'recursive'
+            token: ${{ secrets.SUBMODULE_GITHUB_TOKEN }}
 
       - name: Detect package manager
         id: detect-package-manager
