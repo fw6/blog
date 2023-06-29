@@ -12,23 +12,19 @@ const { title, description } = Astro.props
     <head>
         <BaseHead title={title} description={description} />
         <style>
-            .title {
-                font-size: 2em;
-                margin: 0.25em 0 0;
+            html,
+            body {
+                height: 100%;
             }
-            hr {
-                border-top: 1px solid #ddd;
-                margin: 1rem 0;
-            }
-            .last-updated-on {
-                font-style: italic;
+            :global(body > *) {
+                width: 100%;
             }
         </style>
     </head>
 
-    <body>
+    <body class="flex flex-col">
         <Header title={title} />
-        <main class="container mx-auto">
+        <main class="container mx-auto flex-grow max-w-3xl">
             <slot />
         </main>
         <Footer />

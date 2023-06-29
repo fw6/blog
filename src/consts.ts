@@ -3,7 +3,7 @@
 
 import type { Site } from "./types";
 
-export const SITE_TITLE = "Misky's personal website.";
+export const SITE_TITLE = "Misky's blog";
 export const SITE_DESCRIPTION = "Welcome to my website!";
 
 export const SITE: Site = {

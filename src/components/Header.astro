@@ -1,23 +1,45 @@
 ---
+import { Icon } from 'astro-preload/components'
+
 import HeaderLink from './HeaderLink.astro'
 import ThemeSwitcher from './ThemeSwitcher.astro'
+import { SITE_TITLE } from '../consts'
+const links = [
+    {
+        text: 'Writings',
+        href: '/writings',
+    },
+    {
+        text: 'About',
+        href: '/about',
+    },
+    {
+        text: 'Subscribe',
+        href: '/subscribe',
+    },
+]
 ---
 
-<header class="m-auto">
-    <nav class="flex justify-center items-center px-4 sm:px-8">
-        <div>
-            <HeaderLink href="/">Home</HeaderLink>
-            <HeaderLink href="/writings">Writings</HeaderLink>
-            <HeaderLink href="/about">About</HeaderLink>
-            <HeaderLink href="/subscribe">Subscribe</HeaderLink>
-        </div>
+<header class="m-auto max-w-3xl py-8 flex justify-between items-center">
+    <h1 class="text-sm sm:text-2xl">
+        <HeaderLink class="no-underline" href="/">{SITE_TITLE}</HeaderLink>
+    </h1>
 
-        <aside>
-            <HeaderLink href="https://github.com/fw6" target="_blank">GitHub</HeaderLink>
-            <ThemeSwitcher />
-        </aside>
+    <nav class="flex gap-x-4">
+        {
+            links.map(({ text, href }) => (
+                <HeaderLink class="no-underline font-bold hover:text-primary-focus" href={href}>
+                    {text}
+                </HeaderLink>
+            ))
+        }
+
+        <HeaderLink href="https://github.com/fw6" target="_blank"><Icon name="mdi:github" /></HeaderLink>
+        <ThemeSwitcher />
     </nav>
 </header>
+<div class="divider max-w-3xl mx-auto mt-0"></div>
+
 <style>
     header {
         margin: 0em 0 2em;

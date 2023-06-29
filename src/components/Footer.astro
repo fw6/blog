@@ -1,11 +1,16 @@
 ---
+import { Icon } from 'astro-preload/components'
+
 const today = new Date()
 ---
 
-<footer>This blog is based on the Astro starter kit: Blog</footer>
-<style>
-    footer {
-        padding: 25px;
-        text-align: center;
-    }
-</style>
+<div class="divider max-w-3xl mx-auto mt-8"></div>
+<footer class="footer items-center pb-4 justify-between max-w-3xl m-auto">
+    <p class="items-center grid-flow-col">Copyright © 2023 - All right reserved</p>
+
+    <div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end text-neutral-content">
+        <a href="https://github.com/fw6"><Icon name="mdi:github" /></a>
+        <a href="https://www.linkedin.com/in/misky/"><Icon name="mdi:linkedin" /></a>
+        <a href={import.meta.env.BASE_URL + 'rss.xml'}><Icon name="mdi:rss" /></a>
+    </div>
+</footer>

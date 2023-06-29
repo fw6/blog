@@ -2,6 +2,8 @@
 import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '../components/FormattedDate.astro'
 import PageLayout from './PageLayout.astro'
+import { Icon } from 'astro-preload/components'
+import HeaderLink from '../components/HeaderLink.astro'
 
 type Props = CollectionEntry<'blog'>['data'] & { minutesRead?: string }
 
@@ -9,12 +11,29 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead } = Ast
 ---
 
 <PageLayout title={title} description={description}>
-    <article class="prose m-auto lg:prose-lg prose-img:rounded-xl">
-        {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
-        <h1 class="title">{title}</h1>
-        {minutesRead && <p>{minutesRead}</p>}
+    <div class="flex items-center pb-4 cursor-pointer">
+        <HeaderLink class="no-underline" href="/writings"><Icon name="openmoji:return" />Go back</HeaderLink>
+    </div>
 
+    <div class="title color text-lg text-primary hover:text-primary-focus pb-2">{title}</div>
+
+    <div class="flex items-center pb-8">
+        <Icon name="mdi:calendar-month-outline" />
         <FormattedDate date={pubDate} />
+
+        {
+            minutesRead && (
+                <>
+                    <div class="divider divider-horizontal" />
+                    <span class="italic">{minutesRead}</span>
+                </>
+            )
+        }
+    </div>
+
+    {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
+
+    <article class="prose max-w-full prose-img:rounded-xl px-4">
         {
             updatedDate && (
                 <div class="last-updated-on">
