@@ -199,6 +199,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"000-Inbox/010-Workspace/工作总结.md": {
+	id: "000-Inbox/010-Workspace/工作总结.md";
+  slug: "000-inbox/010-workspace/工作总结";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "200-Learning/210-Programing/CSS.md": {
 	id: "200-Learning/210-Programing/CSS.md";
   slug: "200-learning/210-programing/css";
@@ -216,6 +223,13 @@ declare module 'astro:content' {
 "200-Learning/210-Programing/JS.md": {
 	id: "200-Learning/210-Programing/JS.md";
   slug: "200-learning/210-programing/js";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/RichText Editor.md": {
+	id: "200-Learning/210-Programing/RichText Editor.md";
+  slug: "200-learning/210-programing/richtext-editor";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

@@ -2,6 +2,13 @@
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
         "verbatimModuleSyntax": true,
-        "strictNullChecks": true
-    }
+        "strictNullChecks": true,
+        "moduleResolution": "Bundler"
+    },
+    "exclude": [
+        "node_modules",
+        "dist",
+        "_obsidian",
+        ".obsidian"
+    ]
 }
