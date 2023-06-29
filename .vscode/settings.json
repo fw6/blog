@@ -1,5 +1,44 @@
 {
+    "json.schemaDownload.enable": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "npm.packageManager": "pnpm",
+    "search.exclude": {
+        "**/.git": true,
+        "**/.github": true,
+        "**/.nuxt": true,
+        "**/.output": true,
+        "**/.pnpm": true,
+        "**/.vscode": true,
+        "**/.yarn": true,
+        "**/bower_components": true,
+        "**/dist/**": true,
+        "**/logs": true,
+        "**/node_modules": true,
+        "**/out/**": true,
+        "**/content/blog/**": true,
+        "**/package-lock.json": true,
+        "**/pnpm-lock.yaml": true,
+        "**/tmp": true,
+        "**/dist": true,
+        "**/yarn.lock": true
+    },
     "cSpell.words": [
-        "Astro"
-    ]
+        "Astro",
+        "daisyui"
+    ],
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "rome.rome"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "rome.rome"
+    },
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "mdx.experimentalLanguageServer": true,
+    "window.title": ""
 }

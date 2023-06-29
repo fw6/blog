@@ -1,13 +1,37 @@
-import mdx from '@astrojs/mdx';
-import { defineConfig } from 'astro/config';
-
-import sitemap from '@astrojs/sitemap';
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import rome from "astro-rome";
+import { defineConfig } from "astro/config";
+import { toString as mdastToString } from "mdast-util-to-string";
+import getReadingTime from "reading-time";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import remarkToc from "remark-toc";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://example.com',
-    integrations: [mdx(), sitemap()],
+    server: {
+        port: 5757,
+        host: true,
+    },
+    site: "https://example.com",
+    integrations: [rome(), mdx(), sitemap(), tailwind()],
     experimental: {
         assets: true,
+    },
+    markdown: {
+        remarkPlugins: [
+            remarkToc,
+            rehypeAccessibleEmojis,
+            () => (tree, { data }) => {
+                const textOnPage = mdastToString(tree);
+                const readingTime = getReadingTime(textOnPage);
+                data.astro.frontmatter.minutesRead = readingTime.text;
+            },
+        ],
+        shikiConfig: {
+            theme: "dracula",
+            wrap: true,
+        },
     },
 });
