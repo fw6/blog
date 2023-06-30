@@ -1,0 +1,32 @@
+diff --git a/components/Image.astro b/components/Image.astro
+index 7f592c9b06ed5fc8f89776d3abbb13ebefbfa842..30cc8e1545d6b4a3d8d5eacb333aa5a2d34419f5 100644
+--- a/components/Image.astro
++++ b/components/Image.astro
+@@ -9,7 +9,7 @@ export type Props = Omit<astroHTML.JSX.ImgHTMLAttributes, "src" | "name"> & {
+      * Name of the image.
+      *
+      * This will be the name of the resulting file, so include it with extension if you want to access it later.
+-     * 
++     *
+      * If not provided astro-preload will try to infer it from the URL.
+      *
+      * # Example
+@@ -70,7 +70,7 @@ if (process.env.NODE_ENV === "production" && !url.startsWith("/")) {
+         console.log(
+             `[astro-preload]: Downloaded image ${name} into public/assets/preloaded/${name}`
+         );
+-        url = `assets/preloaded/${name}`;
++        url = `${import.meta.env.BASE_URL}assets/preloaded/${name}`;
+     } catch {
+         console.log(
+             `[astro-preload]: Failed to load image '${name}', fallback to using '${url}'`
+diff --git a/index.ts b/index.ts
+index 2ce8f1e8724473095d75c0c32dbfa7984957e3aa..50f41dbf6165d4493c597a3eae2e4dc84a83d2f3 100644
+--- a/index.ts
++++ b/index.ts
+@@ -1,4 +1,4 @@
+-import { AstroIntegration } from "astro";
++import type { AstroIntegration } from "astro";
+ import fs from "fs/promises";
+ 
+ const PKG_NAME = "astro-preload";

@@ -16,11 +16,8 @@ export default defineConfig({
         port: 5757,
         host: true,
     },
-    site: "https://example.com",
+    site: "https://fw6.github.io/blog",
     integrations: [preload(), compress(), rome(), mdx(), sitemap(), tailwind()],
-    experimental: {
-        assets: true,
-    },
     markdown: {
         remarkPlugins: [
             remarkToc,
