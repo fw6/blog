@@ -14,7 +14,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const { title, description, image = import.meta.env.BASE_URL + 'placeholder-social.jpeg' } = Astro.props
 ---
 
-<script is:inline src={import.meta.env.BASE_URL + '/toggle-theme.js'}></script>
+<script is:inline src={import.meta.env.BASE_URL + 'toggle-theme.js'}></script>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
