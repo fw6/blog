@@ -13,22 +13,22 @@ const links = [
         text: 'About',
         href: '/about',
     },
-    {
-        text: 'Subscribe',
-        href: '/subscribe',
-    },
+    // {
+    //     text: 'Subscribe',
+    //     href: '/subscribe',
+    // },
 ]
 ---
 
 <header class="m-auto max-w-3xl py-8 flex justify-between items-center">
     <h1 class="text-sm sm:text-2xl">
-        <HeaderLink class="no-underline" href="/">{SITE_TITLE}</HeaderLink>
+        <a href={import.meta.env.BASE_URL}>{SITE_TITLE}</a>
     </h1>
 
     <nav class="flex gap-x-4">
         {
             links.map(({ text, href }) => (
-                <HeaderLink class="no-underline font-bold hover:text-primary-focus" href={href}>
+                <HeaderLink class="font-bold hover:text-primary-focus" href={href}>
                     {text}
                 </HeaderLink>
             ))

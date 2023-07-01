@@ -12,3 +12,12 @@ const isActive = href === pathname || href === pathname.replace(import.meta.env.
 <a href={import.meta.env.BASE_URL.replace(/\/$/, '') + href} class="link" class:list={[className, { active: isActive }]} {...props}>
     <slot />
 </a>
+
+<style>
+    a.link {
+        @apply no-underline;
+        &.active {
+            @apply underline decoration-wavy decoration-2 underline-offset-4;
+        }
+    }
+</style>
