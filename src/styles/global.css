@@ -3,12 +3,4 @@
   https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
-body {
-    font-family: Verdana, sans-serif;
-    margin: auto;
-    text-align: left;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    line-height: 1.5;
-    font-size: 16px;
-}
+@import 'lxgw-wenkai-screen-webfont/style.css';

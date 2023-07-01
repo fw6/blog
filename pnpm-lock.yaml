@@ -25,6 +25,9 @@ dependencies:
   astro:
     specifier: ^2.7.0
     version: 2.7.0
+  lxgw-wenkai-screen-webfont:
+    specifier: ^1.7.0
+    version: 1.7.0
   mdast-util-to-string:
     specifier: ^3.2.0
     version: 3.2.0
@@ -2883,6 +2886,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+
+  /lxgw-wenkai-screen-webfont@1.7.0:
+    resolution: {integrity: sha512-xvfF4V26Mb335xKg3uxljz+V2nq4F5ek0ku9pmyKgT0Dzo/d2rHi7WpnqgvM9mlXAcAKOrxrcDmUZiIs/ZQ9bQ==}
+    dev: false
 
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
