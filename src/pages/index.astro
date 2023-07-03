@@ -5,16 +5,16 @@ import BaseHead from '../components/BaseHead.astro'
 
 const links = [
     {
-        path: 'about',
-        title: 'About',
-    },
-    {
         path: 'writings',
         title: 'Writings',
     },
     {
         path: 'notes',
         title: 'Notes',
+    },
+    {
+        path: 'about',
+        title: 'About',
     },
 ]
 ---
@@ -55,7 +55,7 @@ const links = [
             {
                 links.map(({ path, title }) => (
                     <li class="inline-block">
-                        <a class="inline-block mb-5 mr-3 font-semibold text-primary px-1 py-2 floating-btn border-primary" href={import.meta.env.BASE_URL + path}>
+                        <a class="inline-block mb-5 mr-3 font-semibold text-primary px-1 py-2 floating-btn-mini border-primary" href={import.meta.env.BASE_URL + path}>
                             {title}
                         </a>
                     </li>

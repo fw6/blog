@@ -36,6 +36,18 @@ module.exports = {
                         "box-shadow": `10px 10px 0 0 ${tailwindcssColors.fuchsia[500]}`,
                         transform: "translateY(-0.5rem) translateX(-0.5rem)",
                     },
+
+                    ".floating-btn-mini": {
+                        "border-width": "4px",
+                        "border-style": "solid",
+                        "border-color": tailwindcssColors.fuchsia[100],
+                        "box-shadow": `4px 4px 0 0 ${tailwindcssColors.fuchsia[300]}`,
+                        transition: ".2s ease-in-out",
+                    },
+                    ".floating-btn-mini:hover": {
+                        "box-shadow": `6px 6px 0 0 ${tailwindcssColors.fuchsia[400]}`,
+                        transform: "translateY(-0.25rem) translateX(-0.25rem)",
+                    },
                 },
                 winter: {
                     ...daisyuiThemes["[data-theme=winter]"],
@@ -45,6 +57,10 @@ module.exports = {
                     ".floating-btn": {
                         "border-color": tailwindcssColors.black,
                         "box-shadow": `6px 6px 0 0 ${tailwindcssColors.fuchsia[600]}`,
+                    },
+                    ".floating-btn-mini": {
+                        "border-color": tailwindcssColors.black,
+                        "box-shadow": `4px 4px 0 0 ${tailwindcssColors.fuchsia[600]}`,
                     },
                 },
             },

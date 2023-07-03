@@ -10,13 +10,13 @@ const links = [
         href: '/writings',
     },
     {
+        text: 'Notes',
+        href: '/notes',
+    },
+    {
         text: 'About',
         href: '/about',
     },
-    // {
-    //     text: 'Subscribe',
-    //     href: '/subscribe',
-    // },
 ]
 ---
 
@@ -34,7 +34,8 @@ const links = [
             ))
         }
 
-        <HeaderLink href="https://github.com/fw6" target="_blank"><Icon name="mdi:github" /></HeaderLink>
+        <HeaderLink class="pl-6" href="https://github.com/fw6" target="_blank"><Icon name="mdi:github" /></HeaderLink>
+
         <ThemeSwitcher />
     </nav>
 </header>

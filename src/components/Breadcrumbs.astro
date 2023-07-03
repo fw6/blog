@@ -6,7 +6,7 @@ const paths = currentUrlPath ? currentUrlPath.split('/') : []
 // Get url array from path
 const breadcrumbList = paths.slice(0, 1)
 
-if (paths.length > 1 && paths[0] === 'writings') {
+if (paths.length > 1 && ['writings', 'notes'].includes(paths[0])) {
     breadcrumbList.push(paths.slice(1).join('/'))
 }
 ---
@@ -28,7 +28,9 @@ if (paths.length > 1 && paths[0] === 'writings') {
                     </li>
                 ) : (
                     <li>
-                        <a href={import.meta.env.BASE_URL + `${breadcrumb}`}>{breadcrumb}</a>
+                        <a class="link" href={import.meta.env.BASE_URL + `${breadcrumb}`}>
+                            {breadcrumb}
+                        </a>
                         <span aria-hidden="true">&#62;</span>
                     </li>
                 )

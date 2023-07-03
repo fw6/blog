@@ -11,7 +11,7 @@ export async function get(context) {
         site: context.site,
         items: posts.map((post) => ({
             ...post.data,
-            link: `${import.meta.env.BASE_URL}writings/${post.slug}/`,
+            link: `${import.meta.env.BASE_URL}${post.data.tags.includes("notes") ? "notes" : "writings"}/${post.slug}/`,
         })),
     });
 }

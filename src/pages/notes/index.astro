@@ -4,13 +4,13 @@ import { getCollection } from 'astro:content'
 import PageLayout from '../../layouts/PageLayout.astro'
 import BlogItem from '../../components/BlogItem.astro'
 
-const posts = (await getCollection('blog', ({ data }) => data.draft !== true)).filter(({ data }) => !data.tags.includes('notes')).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+const posts = (await getCollection('blog', ({ data }) => data.draft !== true)).filter(({ data }) => data.tags.includes('notes')).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
 ---
 
 <PageLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <section>
         <ul>
-            {posts.map((post) => <BlogItem type="writings" post={post} />)}
+            {posts.map((post) => <BlogItem type="notes" post={post} />)}
         </ul>
     </section>
 </PageLayout>
