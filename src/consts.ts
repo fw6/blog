@@ -3,14 +3,14 @@
 
 import type { Site } from "./types";
 
-export const SITE_TITLE = "Misky's blog";
-export const SITE_DESCRIPTION = "Welcome to my website!";
+export const SITE_TITLE = "Mekhi's blog";
+export const SITE_DESCRIPTION = "Welcome to my blog!";
 
 export const SITE: Site = {
     website: "https://fw6.github.io/blog/",
-    author: "Misky",
+    author: "Mekhi",
     desc: "A responsive and SEO-friendly blog website.",
-    title: "Misky's personal website.",
+    title: "Mekhi's blog.",
     ogImage: "astropaper-og.jpg",
     lightAndDarkMode: true,
     postPerPage: 3,

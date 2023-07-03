@@ -1,4 +1,9 @@
-<div class="align-text-bottom overflow-hidden cursor-pointer relative theme-switcher inline-block bg-no-repeat bg-[length:200%_100%]" id="theme-btn"></div>
+---
+type Props = { class?: string }
+const { class: className } = Astro.props
+---
+
+<div class:list={[className]} class="align-text-bottom overflow-hidden cursor-pointer relative theme-switcher inline-block bg-no-repeat bg-[length:200%_100%]" id="theme-btn"></div>
 
 <style>
     .theme-switcher {

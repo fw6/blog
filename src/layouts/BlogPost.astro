@@ -3,7 +3,6 @@ import type { CollectionEntry } from 'astro:content'
 import FormattedDate from '../components/FormattedDate.astro'
 import PageLayout from './PageLayout.astro'
 import { Icon } from 'astro-preload/components'
-import HeaderLink from '../components/HeaderLink.astro'
 
 type Props = CollectionEntry<'blog'>['data'] & { minutesRead?: string }
 
@@ -11,10 +10,6 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead } = Ast
 ---
 
 <PageLayout title={title} description={description}>
-    <div class="flex items-center pb-4 cursor-pointer">
-        <HeaderLink class="no-underline" href="/writings"><Icon name="openmoji:return" />Go back</HeaderLink>
-    </div>
-
     <div class="title color text-lg text-primary hover:text-primary-focus pb-2">{title}</div>
 
     <div class="flex items-center pb-8">

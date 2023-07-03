@@ -1,0 +1,38 @@
+---
+// Remove current url path and remove trailing slash if exists
+const currentUrlPath = Astro.url.pathname.replace(/\/+$/, '').replace(new RegExp(`^${import.meta.env.BASE_URL}`), '')
+
+const paths = currentUrlPath ? currentUrlPath.split('/') : []
+// Get url array from path
+const breadcrumbList = paths.slice(0, 1)
+
+if (paths.length > 1 && paths[0] === 'writings') {
+    breadcrumbList.push(paths.slice(1).join('/'))
+}
+---
+
+<div class="breadcrumbs min-h-12 mx-auto mb-1 mt-8 w-full max-w-3xl text-sm" aria-label="breadcrumbs">
+    <ul>
+        <li>
+            <a href={import.meta.env.BASE_URL}>Home</a>
+            <span aria-hidden="true">&#62;</span>
+        </li>
+        {
+            breadcrumbList.map((breadcrumb, index) =>
+                index + 1 === breadcrumbList.length ? (
+                    <li>
+                        <span class={`${index > 0 ? 'lowercase' : 'capitalize'}`} aria-current="page">
+                            {/* make the last part lowercase in Home > Tags > some-tag */}
+                            {breadcrumb}
+                        </span>
+                    </li>
+                ) : (
+                    <li>
+                        <a href={import.meta.env.BASE_URL + `${breadcrumb}`}>{breadcrumb}</a>
+                        <span aria-hidden="true">&#62;</span>
+                    </li>
+                )
+            )
+        }
+    </ul>
+</div>
