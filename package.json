@@ -7,7 +7,7 @@
         "dev": "astro dev",
         "start": "astro dev",
         "build": "astro check && astro build",
-        "preview": "astro preview",
+        "preview": "astro preview --site \"https://fw6.github.io\" --base \"/blog\"",
         "astro": "astro"
     },
     "dependencies": {
@@ -39,10 +39,5 @@
         "postcss-preset-env": "^8.5.1",
         "rome": "^12.1.3",
         "typescript": "^5.1.6"
-    },
-    "pnpm": {
-        "patchedDependencies": {
-            "astro-preload@1.1.1": "patches/astro-preload@1.1.1.patch"
-        }
     }
 }

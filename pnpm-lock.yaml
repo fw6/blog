@@ -4,11 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-patchedDependencies:
-  astro-preload@1.1.1:
-    hash: crqn3enfrf7zsmwnalcjzuwolm
-    path: patches/astro-preload@1.1.1.patch
-
 dependencies:
   '@astrojs/mdx':
     specifier: ^0.19.7
@@ -56,7 +51,7 @@ devDependencies:
     version: 1.1.47
   astro-preload:
     specifier: 1.1.1
-    version: 1.1.1(patch_hash=crqn3enfrf7zsmwnalcjzuwolm)
+    version: 1.1.1
   astro-rome:
     specifier: 0.1.18
     version: 0.1.18
@@ -1435,10 +1430,9 @@ packages:
       terser: 5.17.7
     dev: true
 
-  /astro-preload@1.1.1(patch_hash=crqn3enfrf7zsmwnalcjzuwolm):
+  /astro-preload@1.1.1:
     resolution: {integrity: sha512-HiJdIaBYh669ThYfz1EuJLmg88LnAcXxmfp/fnV4vRGCyt4n+CHgvSieInrDEid2HGCtHbrLlLXtS2AGWqveYQ==}
     dev: true
-    patched: true
 
   /astro-rome@0.1.18:
     resolution: {integrity: sha512-jcm0CXQ+nJonw+d7ZfV3pxkmz8AGRQ0VCBJdkmHdyG7pZT6eHLN7NZKKCdRRVVk2hJiytXM2lr6MxqD7vb1X5g==}
