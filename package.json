@@ -6,6 +6,7 @@
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
+        "prebuild": "git submodule update --init --recursive --remote",
         "build": "astro check && astro build",
         "preview": "astro preview --site \"https://fw6.github.io\" --base \"/blog\"",
         "astro": "astro"
