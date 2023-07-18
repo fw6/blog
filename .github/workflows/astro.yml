@@ -35,8 +35,7 @@ jobs:
             submodules: true
 
       - name: Update submodules
-        run: |
-            git submodule update --init --force --depth=1 --recursive --remote
+        run: git -c protocol.version=2 submodule update --init --force --depth=1 --remote
 
       - name: Remove obsidion directories
         run:
