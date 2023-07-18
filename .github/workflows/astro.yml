@@ -34,9 +34,6 @@ jobs:
         with:
             submodules: true
 
-      - name: Update submodules
-        run: git -c protocol.version=2 submodule update --init --remote
-
       - name: Remove obsidion directories
         run:
             rm -rf src/content/blog/{_github,_obsidian,_cedict_ts.u8,.obsidian,.github}
