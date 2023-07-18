@@ -206,37 +206,86 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/CSS.md": {
-	id: "200-Learning/210-Programing/CSS.md";
-  slug: "200-learning/210-programing/css";
+"200-Learning/210-Programing/一些通用的编程知识.md": {
+	id: "200-Learning/210-Programing/一些通用的编程知识.md";
+  slug: "200-learning/210-programing/一些通用的编程知识";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/General.md": {
-	id: "200-Learning/210-Programing/General.md";
-  slug: "200-learning/210-programing/general";
+"200-Learning/210-Programing/你不知道的JS.md": {
+	id: "200-Learning/210-Programing/你不知道的JS.md";
+  slug: "200-learning/210-programing/你不知道的js";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/JS.md": {
-	id: "200-Learning/210-Programing/JS.md";
-  slug: "200-learning/210-programing/js";
+"200-Learning/210-Programing/你不知道的Web标准.md": {
+	id: "200-Learning/210-Programing/你不知道的Web标准.md";
+  slug: "200-learning/210-programing/你不知道的web标准";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/RichText Editor.md": {
-	id: "200-Learning/210-Programing/RichText Editor.md";
-  slug: "200-learning/210-programing/richtext-editor";
+"200-Learning/210-Programing/富文本编辑器相关资源.md": {
+	id: "200-Learning/210-Programing/富文本编辑器相关资源.md";
+  slug: "200-learning/210-programing/富文本编辑器相关资源";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/Web.md": {
-	id: "200-Learning/210-Programing/Web.md";
-  slug: "200-learning/210-programing/web";
+"200-Learning/210-Programing/深入理解Generators.md": {
+	id: "200-Learning/210-Programing/深入理解Generators.md";
+  slug: "200-learning/210-programing/深入理解generators";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/算法入门.md": {
+	id: "200-Learning/210-Programing/算法入门.md";
+  slug: "200-learning/210-programing/算法入门";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/重学CSS.md": {
+	id: "200-Learning/210-Programing/重学CSS.md";
+  slug: "200-learning/210-programing/重学css";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/220-English/Blogs.md": {
+	id: "200-Learning/220-English/Blogs.md";
+  slug: "200-learning/220-english/blogs";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/220-English/Dietcode Blog.md": {
+	id: "200-Learning/220-English/Dietcode Blog.md";
+  slug: "200-learning/220-english/dietcode-blog";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/220-English/Dioxus.md": {
+	id: "200-Learning/220-English/Dioxus.md";
+  slug: "200-learning/220-english/dioxus";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/220-English/Others.md": {
+	id: "200-Learning/220-English/Others.md";
+  slug: "200-learning/220-english/others";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/220-English/Serde.md": {
+	id: "200-Learning/220-English/Serde.md";
+  slug: "200-learning/220-english/serde";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -258,6 +307,20 @@ declare module 'astro:content' {
 "Calendar/Daily notes/2023-02-11.md": {
 	id: "Calendar/Daily notes/2023-02-11.md";
   slug: "calendar/daily-notes/2023-02-11";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Calendar/Daily notes/2023-07-04.md": {
+	id: "Calendar/Daily notes/2023-07-04.md";
+  slug: "calendar/daily-notes/2023-07-04";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Calendar/Daily notes/2023-07-10.md": {
+	id: "Calendar/Daily notes/2023-07-10.md";
+  slug: "calendar/daily-notes/2023-07-10";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

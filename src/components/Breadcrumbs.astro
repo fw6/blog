@@ -23,7 +23,7 @@ if (paths.length > 1 && ['writings', 'notes'].includes(paths[0])) {
                     <li>
                         <span class={`${index > 0 ? 'lowercase' : 'capitalize'}`} aria-current="page">
                             {/* make the last part lowercase in Home > Tags > some-tag */}
-                            {breadcrumb}
+                            {decodeURI(breadcrumb)}
                         </span>
                     </li>
                 ) : (

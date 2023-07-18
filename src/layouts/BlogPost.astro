@@ -6,7 +6,7 @@ import { Icon } from 'astro-preload/components'
 
 type Props = CollectionEntry<'blog'>['data'] & { minutesRead?: string }
 
-const { title, description, pubDate, updatedDate, heroImage, minutesRead } = Astro.props
+const { title, description, pubDate, updatedDate, heroImage, minutesRead, tags } = Astro.props
 ---
 
 <PageLayout title={title} description={description}>
@@ -24,6 +24,12 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead } = Ast
                 </>
             )
         }
+
+        <div class="divider divider-horizontal"></div>
+
+        <div class="w-full md:w-auto flex flex-wrap gap-3">
+            {tags.map((tag) => <span class="text-sm text-gray-500">#{tag}</span>)}
+        </div>
     </div>
 
     {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
@@ -40,3 +46,43 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead } = Ast
         <slot />
     </article>
 </PageLayout>
+
+<style is:global>
+    #toc {
+        display: none;
+
+        & + ul {
+            @apply floating-btn-mini list-disc py-4;
+
+            ul {
+                @apply list-[circle] my-0;
+            }
+
+            li {
+                @apply my-0;
+
+                p {
+                    @apply my-1;
+                }
+
+                a {
+                    @apply link;
+                }
+            }
+        }
+    }
+    .prose :not(pre) code {
+        @apply bg-primary-content rounded;
+    }
+
+    [data-theme='dracula'] {
+        .prose {
+            :not(pre) code {
+                @apply bg-primary-focus;
+            }
+            .prose pre {
+                @apply border-primary border;
+            }
+        }
+    }
+</style>
