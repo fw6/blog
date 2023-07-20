@@ -12,6 +12,7 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeStringify from "rehype-stringify";
 import remarkDirectives from "remark-directive";
 import remarkToc from "remark-toc";
+import { remarkLayoutDirective } from "./unified-plugins/remark-layout-directive.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -82,6 +83,7 @@ export default defineConfig({
                     },
                 },
             ],
+            remarkLayoutDirective,
         ],
         remarkRehype: {
             allowDangerousHtml: true,
