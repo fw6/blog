@@ -47,6 +47,8 @@ jobs:
             git submodule foreach --recursive git checkout master
             git submodule foreach --recursive git pull origin master
       - name: Commit and Push changes
+        env:
+            PAT: ${{ secrets.PAT }}
         run: |
             git add .
             git commit -m "Update submodules"
