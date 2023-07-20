@@ -65,6 +65,8 @@ export default defineConfig({
                         danger: "deter",
                         error: "deter",
 
+                        warning: "warn",
+
                         hint: "tip",
                         important: "tip",
 
