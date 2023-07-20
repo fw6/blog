@@ -206,6 +206,41 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"200-Learning/210-Programing/JavaScript尾后逗号.md": {
+	id: "200-Learning/210-Programing/JavaScript尾后逗号.md";
+  slug: "200-learning/210-programing/javascript尾后逗号";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/JavaScript的词法文法.md": {
+	id: "200-Learning/210-Programing/JavaScript的词法文法.md";
+  slug: "200-learning/210-programing/javascript的词法文法";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Magic of Tagged Templates Literals in JavaScript.md": {
+	id: "200-Learning/210-Programing/Magic of Tagged Templates Literals in JavaScript.md";
+  slug: "200-learning/210-programing/magic-of-tagged-templates-literals-in-javascript";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Rust入门之旅.md": {
+	id: "200-Learning/210-Programing/Rust入门之旅.md";
+  slug: "200-learning/210-programing/rust入门之旅";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/一些有意思的Web API.md": {
+	id: "200-Learning/210-Programing/一些有意思的Web API.md";
+  slug: "200-learning/210-programing/一些有意思的web-api";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "200-Learning/210-Programing/一些通用的编程知识.md": {
 	id: "200-Learning/210-Programing/一些通用的编程知识.md";
   slug: "200-learning/210-programing/一些通用的编程知识";
@@ -220,9 +255,16 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/你不知道的Web标准.md": {
-	id: "200-Learning/210-Programing/你不知道的Web标准.md";
-  slug: "200-learning/210-programing/你不知道的web标准";
+"200-Learning/210-Programing/关于Web Performance.md": {
+	id: "200-Learning/210-Programing/关于Web Performance.md";
+  slug: "200-learning/210-programing/关于web-performance";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/冒号课堂.md": {
+	id: "200-Learning/210-Programing/冒号课堂.md";
+  slug: "200-learning/210-programing/冒号课堂";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
