@@ -37,11 +37,7 @@ jobs:
       - name: Update submodules from origin master
         env:
             PAT: ${{ secrets.PAT }}
-        run: |
-            git submodule update --init --recursive
-            git submodule foreach --recursive git fetch
-            git submodule foreach --recursive git switch blog
-            # git submodule foreach --recursive git pull origin blog
+        run: git submodule update --init --recursive --remote
 
       - name: Remove obsidion directories
         run:
