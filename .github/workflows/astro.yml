@@ -34,6 +34,11 @@ jobs:
         with:
             submodules: true
 
+      ########## This is a workaround for update submodules ##########
+      - name: Configure Git
+        run: |
+            git config --global user.name "fw6"
+            git config --global user.email "lyman.von9506@gmail.com"
       - name: Update remote submodules
         env:
             PAT: ${{ secrets.PAT }}
@@ -41,7 +46,6 @@ jobs:
             git submodule update --init --recursive
             git submodule foreach --recursive git checkout master
             git submodule foreach --recursive git pull origin master
-
       - name: Commit and Push changes
         run: |
             git add .
@@ -51,6 +55,7 @@ jobs:
       - name: Remove obsidion directories
         run:
             rm -rf src/content/blog/{_github,_obsidian,_cedict_ts.u8,.obsidian,.github}
+      ##########                                          ##########
 
       - name: Setup pnpm
         # You may pin to the exact commit or the version.
