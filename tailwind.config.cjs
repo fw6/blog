@@ -1,6 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const daisyuiThemes = require("daisyui/src/theming/themes");
 const tailwindcssColors = require("tailwindcss/colors");
+const tinycolor = require("tinycolor2");
 
 module.exports = {
     content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte}"],
@@ -48,6 +49,42 @@ module.exports = {
                         "box-shadow": `6px 6px 0 0 ${tailwindcssColors.fuchsia[400]}`,
                         transform: "translateY(-0.25rem) translateX(-0.25rem)",
                     },
+
+                    ".callout.callout-abstract": {
+                        "--callout-background": tinycolor(tailwindcssColors.cyan[400])
+                            .setAlpha(0.05)
+                            .toHslString(),
+                        "--callout-color": tailwindcssColors.cyan[500],
+                        "--callout-border": `1px solid ${tailwindcssColors.cyan[200]}`,
+                    },
+                    ".callout.callout-todo": {
+                        "--callout-background": tinycolor(tailwindcssColors.sky[400])
+                            .setAlpha(0.05)
+                            .toHslString(),
+                        "--callout-color": tailwindcssColors.sky[500],
+                        "--callout-border": `1px solid ${tailwindcssColors.sky[200]}`,
+                    },
+                    ".callout.callout-tip": {
+                        "--callout-background": tinycolor(tailwindcssColors.purple[400])
+                            .setAlpha(0.05)
+                            .toHslString(),
+                        "--callout-color": tailwindcssColors.purple[500],
+                        "--callout-border": `1px solid ${tailwindcssColors.purple[200]}`,
+                    },
+                    ".callout.callout-quote": {
+                        "--callout-background": tinycolor(tailwindcssColors.stone[400])
+                            .setAlpha(0.05)
+                            .toHslString(),
+                        "--callout-color": tailwindcssColors.stone[500],
+                        "--callout-border": `1px solid ${tailwindcssColors.stone[200]}`,
+                    },
+                    ".callout.callout-failure": {
+                        "--callout-background": tinycolor(tailwindcssColors.red[400])
+                            .setAlpha(0.05)
+                            .toHslString(),
+                        "--callout-color": tailwindcssColors.red[500],
+                        "--callout-border": `1px solid ${tailwindcssColors.red[200]}`,
+                    },
                 },
                 winter: {
                     ...daisyuiThemes["[data-theme=winter]"],
@@ -61,6 +98,11 @@ module.exports = {
                     ".floating-btn-mini": {
                         "border-color": tailwindcssColors.black,
                         "box-shadow": `4px 4px 0 0 ${tailwindcssColors.fuchsia[600]}`,
+                    },
+
+                    // remark-callout-directives
+                    ".callout.callout-note": {
+                        "--callout-color": tailwindcssColors.neutral[400],
                     },
                 },
             },

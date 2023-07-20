@@ -48,6 +48,8 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead, tags }
 </PageLayout>
 
 <style is:global>
+    /* infima/microflash/vitepress */
+    @import url('@microflash/remark-callout-directives/themes/vitepress.css');
     #toc {
         display: none;
 
@@ -71,8 +73,21 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead, tags }
             }
         }
     }
-    .prose :not(pre) code {
-        @apply bg-primary-content rounded;
+
+    .prose {
+        :not(pre) code {
+            @apply bg-primary-content rounded;
+        }
+
+        .callout-content {
+            p {
+                @apply my-0;
+            }
+
+            p + p {
+                @apply mt-5;
+            }
+        }
     }
 
     [data-theme='dracula'] {
