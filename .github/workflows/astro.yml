@@ -39,7 +39,7 @@ jobs:
             PAT: ${{ secrets.PAT }}
         run: |
             git submodule update --init --recursive
-            git submodule foreach --recursive git checkout --track origin/blog
+            git submodule foreach --recursive git switch blog
             git submodule foreach --recursive git pull origin blog
 
       - name: Remove obsidion directories
