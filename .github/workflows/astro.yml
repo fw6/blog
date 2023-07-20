@@ -34,6 +34,20 @@ jobs:
         with:
             submodules: true
 
+      - name: Update remote submodules
+        env:
+            PAT: ${{ secrets.PAT }}
+        run: |
+            git submodule update --init --recursive
+            git submodule foreach --recursive git checkout master
+            git submodule foreach --recursive git pull origin master
+
+      - name: Commit and Push changes
+        run: |
+            git add .
+            git commit -m "Update submodules"
+            git push
+
       - name: Remove obsidion directories
         run:
             rm -rf src/content/blog/{_github,_obsidian,_cedict_ts.u8,.obsidian,.github}
