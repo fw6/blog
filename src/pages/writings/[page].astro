@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content'
+import Posts from '@layouts/Posts.astro'
+import type { GetStaticPaths } from 'astro'
+
+import { getPageNumbers } from '@utils/getPageNumbers'
+import { getSortedPosts } from '@utils/getSortedPosts'
+import { SITE } from '@consts'
+
+export const getStaticPaths = (async () => {
+    const posts = await getCollection('blog', ({ data }) => data.draft !== true)
+
+    return getPageNumbers(posts.length).map((pageNum) => ({
+        params: { page: String(pageNum) },
+    }))
+}) satisfies GetStaticPaths
+
+const { page } = Astro.params
+
+const posts = await getCollection('blog')
+const sortedPosts = getSortedPosts(posts)
+const totalPages = getPageNumbers(sortedPosts.length)
+
+const currentPage = !isNaN(Number(page)) && totalPages.includes(Number(page)) ? Number(page) : 0
+const lastPost = currentPage * SITE.postPerPage
+const startPost = lastPost - SITE.postPerPage
+
+const paginatedPosts = sortedPosts.slice(startPost, lastPost)
+---
+
+<Posts posts={paginatedPosts} pageNum={currentPage} totalPages={totalPages.length} subpath="writings" />

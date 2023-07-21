@@ -1,16 +1,18 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
+import { SITE } from '@consts'
 import { getCollection } from 'astro:content'
-import PageLayout from '../../layouts/PageLayout.astro'
-import BlogItem from '../../components/BlogItem.astro'
+import Posts from '@layouts/Posts.astro'
+import { getSortedPosts } from '@utils/getSortedPosts'
+import { getPageNumbers } from '@utils/getPageNumbers'
 
-const posts = (await getCollection('blog', ({ data }) => data.draft !== true)).filter(({ data }) => data.tags.includes('notes')).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+const posts = await getCollection('blog', ({ data }) => data.draft !== true)
+const notes = posts.filter(({ data }) => data.tags.includes('notes'))
+
+const sortedPosts = getSortedPosts(notes)
+
+const totalPages = getPageNumbers(sortedPosts.length)
+
+const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage)
 ---
 
-<PageLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <section>
-        <ul>
-            {posts.map((post) => <BlogItem type="notes" post={post} />)}
-        </ul>
-    </section>
-</PageLayout>
+<Posts posts={paginatedPosts} pageNum={1} totalPages={totalPages.length} subpath="notes" />

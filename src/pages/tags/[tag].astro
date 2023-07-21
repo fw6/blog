@@ -1,0 +1,40 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import PageLayout from '@layouts/PageLayout.astro'
+import BlogItem from '@components/BlogItem.astro'
+import { getPostsByTag } from '@utils/getPostsByTag'
+import { getUniqueTags } from '@utils/getUniqueTags'
+
+export interface Props {
+    post: CollectionEntry<'blog'>
+    tag: string
+}
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog')
+
+    const tags = getUniqueTags(posts)
+
+    return tags.map((tag) => {
+        return {
+            params: { tag },
+            props: { tag },
+        }
+    })
+}
+
+const { tag } = Astro.props
+const posts = await getCollection('blog', ({ data }) => data.draft !== true)
+const tagPosts = getPostsByTag(posts, tag)
+---
+
+<PageLayout title={`Tag:${tag} | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+    <div>All the articles with the tag "{tag}".</div>
+
+    <section>
+        <ul>
+            {tagPosts.map((post) => <BlogItem href={`${import.meta.env.BASE_URL}`} post={post} />)}
+        </ul>
+    </section>
+</PageLayout>

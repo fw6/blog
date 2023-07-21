@@ -23,11 +23,11 @@ const { title, description } = Astro.props
         </style>
     </head>
 
-    <body class="flex flex-col font-sans text-base break-words">
+    <body class="flex flex-col font-sans text-base break-words px-4 md:px-0">
         <Header title={title} />
         <Breadcrumbs />
 
-        <main class="container mx-auto flex-grow max-w-3xl">
+        <main class="container mx-auto flex-grow max-w-3xl lg:max-w-4xl">
             <slot />
         </main>
         <Footer />

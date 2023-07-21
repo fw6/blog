@@ -1,9 +1,36 @@
 {
     "extends": "astro/tsconfigs/base",
     "compilerOptions": {
+        "baseUrl": ".",
         "verbatimModuleSyntax": true,
         "strictNullChecks": true,
-        "moduleResolution": "Bundler"
+        "moduleResolution": "Bundler",
+        "paths": {
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@consts": [
+                "src/consts.ts"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@content/*": [
+                "src/content/*"
+            ],
+            "@layouts/*": [
+                "src/layouts/*"
+            ],
+            "@pages/*": [
+                "src/pages/*"
+            ],
+            "@styles/*": [
+                "src/styles/*"
+            ],
+            "@utils/*": [
+                "src/utils/*"
+            ]
+        }
     },
     "exclude": [
         "node_modules",

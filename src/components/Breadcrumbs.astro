@@ -6,12 +6,12 @@ const paths = currentUrlPath ? currentUrlPath.split('/') : []
 // Get url array from path
 const breadcrumbList = paths.slice(0, 1)
 
-if (paths.length > 1 && ['writings', 'notes'].includes(paths[0])) {
-    breadcrumbList.push(paths.slice(1).join('/'))
+if (paths.length > 1 && paths[0] === 'posts') {
+    breadcrumbList.splice(0, 1, paths.slice(1).join('/'))
 }
 ---
 
-<div class="breadcrumbs min-h-12 mx-auto mb-1 mt-8 w-full max-w-3xl text-sm" aria-label="breadcrumbs">
+<div class="breadcrumbs min-h-12 mx-auto mb-1 mt-8 w-full max-w-3xl lg:max-w-4xl text-sm" aria-label="breadcrumbs">
     <ul>
         <li>
             <a href={import.meta.env.BASE_URL}>Home</a>

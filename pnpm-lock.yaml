@@ -28,6 +28,9 @@ dependencies:
   astro:
     specifier: ^2.7.0
     version: 2.7.0(@types/node@20.4.2)
+  github-slugger:
+    specifier: ^2.0.0
+    version: 2.0.0
   lxgw-wenkai-screen-webfont:
     specifier: ^1.7.0
     version: 1.7.0

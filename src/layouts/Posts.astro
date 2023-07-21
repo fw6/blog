@@ -1,0 +1,69 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Breadcrumbs from '../components/Breadcrumbs.astro'
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts'
+import type { CollectionEntry } from 'astro:content'
+import BlogItem from '@components/BlogItem.astro'
+import { slugify } from '@utils/slugify'
+
+export interface Props {
+    subpath: 'notes' | 'writings'
+    pageNum: number
+    totalPages: number
+    posts: CollectionEntry<'blog'>[]
+}
+
+const { pageNum, totalPages, posts, subpath = 'writings' } = Astro.props
+
+const prev = pageNum > 1 ? '' : 'disabled'
+const next = pageNum < totalPages ? '' : 'disabled'
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={`Posts | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+        <style>
+            html,
+            body {
+                height: 100%;
+            }
+            :global(body > *) {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body class="flex flex-col px-4 md:px-0 font-sans text-base break-words">
+        <Header />
+        <Breadcrumbs />
+
+        <main class="container mx-auto flex-grow max-w-3xl lg:max-w-4xl">
+            <ul>
+                {posts.map((post) => <BlogItem href={`${import.meta.env.BASE_URL}posts/${slugify(post.data)}`} post={post} />)}
+            </ul>
+        </main>
+
+        {
+            totalPages > 1 && (
+                <nav class="max-w-3xl lg:max-w-4xl mx-auto mb-8 mt-auto flex justify-between" aria-label="Pagination">
+                    <a class:list={['btn btn-sm md:btn-md gap-2 normal-case lg:gap-3', { 'btn-disabled': prev === 'disabled' }]} href={`${import.meta.env.BASE_URL}${subpath}${pageNum - 1 !== 1 ? '/' + (pageNum - 1) : ''}`} aria-label="Previous">
+                        <svg class="h-6 w-6 fill-current md:h-8 md:w-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                        </svg>
+                        <div>Prev</div>
+                    </a>
+
+                    <a class:list={['btn btn-sm md:btn-md gap-2 normal-case lg:gap-3', { 'btn-disabled': next === 'disabled' }]} href={`${import.meta.env.BASE_URL}${subpath}/${pageNum + 1}`} aria-label="Next">
+                        <div>Next</div>
+                        <svg class="h-6 w-6 fill-current md:h-8 md:w-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                        </svg>
+                    </a>
+                </nav>
+            )
+        }
+        <Footer />
+    </body>
+</html>

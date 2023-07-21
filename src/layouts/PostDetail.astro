@@ -34,7 +34,7 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead, tags }
 
     {heroImage && <img width={720} height={360} src={heroImage} alt="" />}
 
-    <article class="prose max-w-3xl prose-img:rounded-xl px-4">
+    <article class="prose md:prose-lg lg:prose-xl prose-stone max-w-3xl lg:max-w-4xl prose-img:rounded-xl px-4 prose-headings:underline">
         {
             updatedDate && (
                 <div class="last-updated-on">

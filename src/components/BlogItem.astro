@@ -2,19 +2,25 @@
 import type { CollectionEntry } from 'astro:content'
 import FormattedDate from './FormattedDate.astro'
 
-type Props = { post: CollectionEntry<'blog'>; type: 'notes' | 'writings' }
-const { post, type } = Astro.props
+type Props = { post: CollectionEntry<'blog'>; href: string }
+const { post, href } = Astro.props
 const { remarkPluginFrontmatter } = await post.render()
 ---
 
-<li class="item mt-4 mb-6 p-4 floating-btn border-black">
-    <h2 class="text-2xl pb-4 text-primary"><a href={import.meta.env.BASE_URL + `${type}/${post.slug}/`}>{post.data.title}</a></h2>
+<li class="item mt-4 mb-6 p-4 floating-btn border-black flex justify-between">
+    <div class="grow">
+        <h2 class="text-2xl pb-4 text-primary"><a href={href}>{post.data.title}</a></h2>
 
-    {post.data.description && <p class="mb-4 line-clamp-3">{post.data.description}</p>}
+        {post.data.description && <p class="mb-4 line-clamp-3">{post.data.description}</p>}
 
-    <div class="flex">
-        <FormattedDate date={post.data.pubDate} />
-        <div class="divider divider-horizontal"></div>
-        <span>{remarkPluginFrontmatter.minutesRead}</span>
+        <div class="flex">
+            <FormattedDate date={post.data.pubDate} />
+            <div class="divider divider-horizontal"></div>
+            <span>{remarkPluginFrontmatter.minutesRead}</span>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-end">
+        <img class="m-auto w-32 h-20 object-contain bg-purple-100" src={post.data.heroImage} alt={post.data.title} />
     </div>
 </li>

@@ -13,5 +13,5 @@ export const SITE: Site = {
     title: "Mekhi's blog.",
     ogImage: "astropaper-og.jpg",
     lightAndDarkMode: true,
-    postPerPage: 3,
+    postPerPage: 10,
 };

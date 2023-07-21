@@ -1,0 +1,19 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts'
+import { getCollection } from 'astro:content'
+
+import PageLayout from '@layouts/PageLayout.astro'
+import { getUniqueTags } from '@utils/getUniqueTags'
+import Tag from '@components/Tag.astro'
+
+const posts = await getCollection('blog', ({ data }) => data.draft !== true)
+let tags = getUniqueTags(posts)
+---
+
+<PageLayout title={`Tags | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+    <div>All the tags used in posts.</div>
+
+    <ul>
+        {tags.map((tag) => <Tag name={tag} size="lg" />)}
+    </ul>
+</PageLayout>

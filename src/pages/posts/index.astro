@@ -6,9 +6,8 @@ import { getSortedPosts } from '@utils/getSortedPosts'
 import { getPageNumbers } from '@utils/getPageNumbers'
 
 const posts = await getCollection('blog', ({ data }) => data.draft !== true)
-const writings = posts.filter(({ data }) => !data.tags.includes('notes'))
 
-const sortedPosts = getSortedPosts(writings)
+const sortedPosts = getSortedPosts(posts)
 
 const totalPages = getPageNumbers(sortedPosts.length)
 
