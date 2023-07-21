@@ -1,5 +1,6 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import remarkCalloutDirectives from "@microflash/remark-callout-directives";
 import compress from "astro-compress";
@@ -21,7 +22,7 @@ export default defineConfig({
         host: true,
     },
     site: "https://fw6.github.io/blog",
-    integrations: [preload(), compress(), rome(), mdx(), sitemap(), tailwind()],
+    integrations: [svelte(), preload(), compress(), rome(), mdx(), sitemap(), tailwind()],
     markdown: {
         remarkPlugins: [
             remarkToc,

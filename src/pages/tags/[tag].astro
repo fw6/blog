@@ -5,6 +5,7 @@ import PageLayout from '@layouts/PageLayout.astro'
 import BlogItem from '@components/BlogItem.astro'
 import { getPostsByTag } from '@utils/getPostsByTag'
 import { getUniqueTags } from '@utils/getUniqueTags'
+import { slugify } from '@utils/slugify'
 
 export interface Props {
     post: CollectionEntry<'blog'>
@@ -34,7 +35,7 @@ const tagPosts = getPostsByTag(posts, tag)
 
     <section>
         <ul>
-            {tagPosts.map((post) => <BlogItem href={`${import.meta.env.BASE_URL}`} post={post} />)}
+            {tagPosts.map((post) => <BlogItem href={`${import.meta.env.BASE_URL}posts/${slugify(post.data)}`} post={post} />)}
         </ul>
     </section>
 </PageLayout>

@@ -1,0 +1,15 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '@consts'
+import PageLayout from '@layouts/PageLayout.astro'
+import { getCollection } from 'astro:content'
+import SearchComponent from '@components/Search.svelte'
+
+const posts = await getCollection('blog', ({ data }) => !data.draft)
+---
+
+<PageLayout title={`Search | ${SITE_TITLE}`} description={SITE_DESCRIPTION}>
+    <h1 class="text-3xl">Search</h1>
+    <p>Search any posts...</p>
+
+    <SearchComponent client:load {posts} />
+</PageLayout>
