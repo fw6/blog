@@ -35,7 +35,7 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "rome.rome"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[typescript]": {
         "editor.defaultFormatter": "rome.rome"

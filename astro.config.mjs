@@ -10,6 +10,7 @@ import { defineConfig } from "astro/config";
 import { toString as mdastToString } from "mdast-util-to-string";
 import getReadingTime from "reading-time";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import remarkDirectives from "remark-directive";
 import remarkToc from "remark-toc";
@@ -24,6 +25,7 @@ export default defineConfig({
     site: "https://fw6.github.io/blog",
     integrations: [svelte(), preload(), compress(), rome(), mdx(), sitemap(), tailwind()],
     markdown: {
+        syntaxHighlight: false,
         remarkPlugins: [
             remarkToc,
             rehypeAccessibleEmojis,
@@ -89,10 +91,16 @@ export default defineConfig({
         remarkRehype: {
             allowDangerousHtml: true,
         },
-        rehypePlugins: [[rehypeStringify, { allowDangerousHtml: true }]],
+        rehypePlugins: [
+            rehypePrettyCode,
+            [
+                rehypeStringify,
+                { allowDangerousHtml: true }
+            ]
+        ],
         shikiConfig: {
             theme: "dracula",
-            wrap: true,
+            wrap: false,
         },
     },
 });
