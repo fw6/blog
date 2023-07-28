@@ -80,6 +80,8 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead, tags }
         }
 
         pre > code {
+            counter-reset: line;
+
             [data-line] {
                 display: inline-block;
                 border-left: 0.5em solid transparent;
@@ -90,12 +92,28 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead, tags }
                 position: relative;
                 left: -1.5em;
                 text-indent: 1em;
+
+                &::before {
+                    counter-increment: line;
+                    content: counter(line);
+
+                    /* Other styling */
+                    display: inline-block;
+                    width: 1rem;
+                    margin-right: 2rem;
+                    text-align: right;
+                    color: gray;
+                }
             }
 
             [data-highlighted-line] {
                 background-color: #2e4c35;
                 border-color: #469458;
                 @apply border-primary bg-purple-900 hover:bg-purple-800;
+            }
+
+            [data-highlighted-chars] {
+                @apply border-b-purple-500 border-b-2 border-transparent rounded-sm bg-purple-900 hover:bg-purple-800 border;
             }
         }
 
@@ -113,7 +131,7 @@ const { title, description, pubDate, updatedDate, heroImage, minutesRead, tags }
 
     [data-theme='dracula'] {
         .prose {
-            :not(pre) code {
+            :not(pre) > code {
                 @apply bg-primary-focus;
             }
             .prose pre {
