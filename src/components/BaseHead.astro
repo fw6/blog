@@ -15,6 +15,27 @@ const { title, description, image = import.meta.env.BASE_URL + 'placeholder-soci
 ---
 
 <script is:inline src={import.meta.env.BASE_URL + 'toggle-theme.js'}></script>
+<script is:inline>
+var _hmt = _hmt || []
+    ; (function () {
+        var hm = document.createElement('script')
+        hm.src = 'https://hm.baidu.com/hm.js?36acead05e6423840558dd8f62272483'
+        var s = document.getElementsByTagName('script')[0]
+        s.parentNode.insertBefore(hm, s)
+    })()
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-20M2VWR7DR"></script>
+<script is:inline>
+window.dataLayer = window.dataLayer || []
+function gtag () {
+    dataLayer.push(arguments)
+}
+gtag('js', new Date())
+
+gtag('config', 'G-20M2VWR7DR')
+</script>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
