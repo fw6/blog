@@ -9,7 +9,7 @@ import rome from "astro-rome";
 import { defineConfig } from "astro/config";
 import { toString as mdastToString } from "mdast-util-to-string";
 import getReadingTime from "reading-time";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import a11yEmoji from "@fec/remark-a11y-emoji";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import remarkDirectives from "remark-directive";
@@ -28,7 +28,7 @@ export default defineConfig({
         syntaxHighlight: false,
         remarkPlugins: [
             remarkToc,
-            rehypeAccessibleEmojis,
+            a11yEmoji,
             () => (tree, { data }) => {
                 const textOnPage = mdastToString(tree);
                 const readingTime = getReadingTime(textOnPage);

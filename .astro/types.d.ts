@@ -206,6 +206,48 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"000-Inbox/040-Idea Incubator/保存下有空看.md": {
+	id: "000-Inbox/040-Idea Incubator/保存下有空看.md";
+  slug: "000-inbox/040-idea-incubator/保存下有空看";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Compile Svelte in Your Head（1）.md": {
+	id: "200-Learning/210-Programing/Compile Svelte in Your Head（1）.md";
+  slug: "200-learning/210-programing/compile-svelte-in-your-head1";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Compile Svelte in Your Head（2）.md": {
+	id: "200-Learning/210-Programing/Compile Svelte in Your Head（2）.md";
+  slug: "200-learning/210-programing/compile-svelte-in-your-head2";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Compile Svelte in Your Head（3）.md": {
+	id: "200-Learning/210-Programing/Compile Svelte in Your Head（3）.md";
+  slug: "200-learning/210-programing/compile-svelte-in-your-head3";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Debugging by Thinking.md": {
+	id: "200-Learning/210-Programing/Debugging by Thinking.md";
+  slug: "200-learning/210-programing/debugging-by-thinking";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/How to do great work.md": {
+	id: "200-Learning/210-Programing/How to do great work.md";
+  slug: "200-learning/210-programing/how-to-do-great-work";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "200-Learning/210-Programing/JavaScript尾后逗号.md": {
 	id: "200-Learning/210-Programing/JavaScript尾后逗号.md";
   slug: "200-learning/210-programing/javascript尾后逗号";
@@ -227,9 +269,30 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"200-Learning/210-Programing/Proxy & Reflect.md": {
+	id: "200-Learning/210-Programing/Proxy & Reflect.md";
+  slug: "200-learning/210-programing/proxy--reflect";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Reactive Web Framework.md": {
+	id: "200-Learning/210-Programing/Reactive Web Framework.md";
+  slug: "200-learning/210-programing/reactive-web-framework";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "200-Learning/210-Programing/Rust入门之旅.md": {
 	id: "200-Learning/210-Programing/Rust入门之旅.md";
   slug: "200-learning/210-programing/rust入门之旅";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Service Worker Cookbook.md": {
+	id: "200-Learning/210-Programing/Service Worker Cookbook.md";
+  slug: "200-learning/210-programing/service-worker-cookbook";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -276,6 +339,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"200-Learning/210-Programing/浏览器工作原理.md": {
+	id: "200-Learning/210-Programing/浏览器工作原理.md";
+  slug: "200-learning/210-programing/浏览器工作原理";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "200-Learning/210-Programing/深入理解Generators.md": {
 	id: "200-Learning/210-Programing/深入理解Generators.md";
   slug: "200-learning/210-programing/深入理解generators";
@@ -293,6 +363,13 @@ declare module 'astro:content' {
 "200-Learning/210-Programing/重学CSS.md": {
 	id: "200-Learning/210-Programing/重学CSS.md";
   slug: "200-learning/210-programing/重学css";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/随便整理的前端面试常考点.md": {
+	id: "200-Learning/210-Programing/随便整理的前端面试常考点.md";
+  slug: "200-learning/210-programing/随便整理的前端面试常考点";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -328,6 +405,20 @@ declare module 'astro:content' {
 "200-Learning/220-English/Serde.md": {
 	id: "200-Learning/220-English/Serde.md";
   slug: "200-learning/220-english/serde";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/220-Sociology/新手管理者面临的9个问题🙋.md": {
+	id: "200-Learning/220-Sociology/新手管理者面临的9个问题🙋.md";
+  slug: "200-learning/220-sociology/新手管理者面临的9个问题";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/220-Sociology/聊聊第一性原理.md": {
+	id: "200-Learning/220-Sociology/聊聊第一性原理.md";
+  slug: "200-learning/220-sociology/聊聊第一性原理";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
