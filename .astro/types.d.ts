@@ -20,26 +20,9 @@ declare module 'astro:content' {
 
 declare module 'astro:content' {
 	export { z } from 'astro/zod';
-	export type CollectionEntry<C extends keyof AnyEntryMap> = AnyEntryMap[C][keyof AnyEntryMap[C]];
 
-	// TODO: Remove this when having this fallback is no longer relevant. 2.3? 3.0? - erika, 2023-04-04
-	/**
-	 * @deprecated
-	 * `astro:content` no longer provide `image()`.
-	 *
-	 * Please use it through `schema`, like such:
-	 * ```ts
-	 * import { defineCollection, z } from "astro:content";
-	 *
-	 * defineCollection({
-	 *   schema: ({ image }) =>
-	 *     z.object({
-	 *       image: image(),
-	 *     }),
-	 * });
-	 * ```
-	 */
-	export const image: never;
+	type Flatten<T> = T extends { [K: string]: infer U } ? U : never;
+	export type CollectionEntry<C extends keyof AnyEntryMap> = Flatten<AnyEntryMap[C]>;
 
 	// This needs to be in sync with ImageMetadata
 	export type ImageFunction = () => import('astro/zod').ZodObject<{
@@ -54,19 +37,16 @@ declare module 'astro:content' {
 				import('astro/zod').ZodLiteral<'tiff'>,
 				import('astro/zod').ZodLiteral<'webp'>,
 				import('astro/zod').ZodLiteral<'gif'>,
-				import('astro/zod').ZodLiteral<'svg'>
+				import('astro/zod').ZodLiteral<'svg'>,
 			]
 		>;
 	}>;
 
 	type BaseSchemaWithoutEffects =
 		| import('astro/zod').AnyZodObject
-		| import('astro/zod').ZodUnion<import('astro/zod').AnyZodObject[]>
+		| import('astro/zod').ZodUnion<[BaseSchemaWithoutEffects, ...BaseSchemaWithoutEffects[]]>
 		| import('astro/zod').ZodDiscriminatedUnion<string, import('astro/zod').AnyZodObject[]>
-		| import('astro/zod').ZodIntersection<
-				import('astro/zod').AnyZodObject,
-				import('astro/zod').AnyZodObject
-		  >;
+		| import('astro/zod').ZodIntersection<BaseSchemaWithoutEffects, BaseSchemaWithoutEffects>;
 
 	type BaseSchema =
 		| BaseSchemaWithoutEffects
@@ -97,7 +77,7 @@ declare module 'astro:content' {
 
 	export function getEntryBySlug<
 		C extends keyof ContentEntryMap,
-		E extends ValidContentEntrySlug<C> | (string & {})
+		E extends ValidContentEntrySlug<C> | (string & {}),
 	>(
 		collection: C,
 		// Note that this has to accept a regular string too, for SSR
@@ -122,7 +102,7 @@ declare module 'astro:content' {
 
 	export function getEntry<
 		C extends keyof ContentEntryMap,
-		E extends ValidContentEntrySlug<C> | (string & {})
+		E extends ValidContentEntrySlug<C> | (string & {}),
 	>(entry: {
 		collection: C;
 		slug: E;
@@ -131,7 +111,7 @@ declare module 'astro:content' {
 		: Promise<CollectionEntry<C> | undefined>;
 	export function getEntry<
 		C extends keyof DataEntryMap,
-		E extends keyof DataEntryMap[C] | (string & {})
+		E extends keyof DataEntryMap[C] | (string & {}),
 	>(entry: {
 		collection: C;
 		id: E;
@@ -140,7 +120,7 @@ declare module 'astro:content' {
 		: Promise<CollectionEntry<C> | undefined>;
 	export function getEntry<
 		C extends keyof ContentEntryMap,
-		E extends ValidContentEntrySlug<C> | (string & {})
+		E extends ValidContentEntrySlug<C> | (string & {}),
 	>(
 		collection: C,
 		slug: E
@@ -149,7 +129,7 @@ declare module 'astro:content' {
 		: Promise<CollectionEntry<C> | undefined>;
 	export function getEntry<
 		C extends keyof DataEntryMap,
-		E extends keyof DataEntryMap[C] | (string & {})
+		E extends keyof DataEntryMap[C] | (string & {}),
 	>(
 		collection: C,
 		id: E
@@ -213,6 +193,20 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"200-Learning/210-Programing/AWS re_Invent 2022.md": {
+	id: "200-Learning/210-Programing/AWS re_Invent 2022.md";
+  slug: "200-learning/210-programing/aws-re_invent-2022";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/CSS逻辑属性与逻辑值.md": {
+	id: "200-Learning/210-Programing/CSS逻辑属性与逻辑值.md";
+  slug: "200-learning/210-programing/css逻辑属性与逻辑值";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "200-Learning/210-Programing/Compile Svelte in Your Head（1）.md": {
 	id: "200-Learning/210-Programing/Compile Svelte in Your Head（1）.md";
   slug: "200-learning/210-programing/compile-svelte-in-your-head1";
@@ -269,6 +263,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"200-Learning/210-Programing/Optimize for Core Web Vitals.md": {
+	id: "200-Learning/210-Programing/Optimize for Core Web Vitals.md";
+  slug: "200-learning/210-programing/optimize-for-core-web-vitals";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "200-Learning/210-Programing/Proxy & Reflect.md": {
 	id: "200-Learning/210-Programing/Proxy & Reflect.md";
   slug: "200-learning/210-programing/proxy--reflect";
@@ -293,6 +294,34 @@ declare module 'astro:content' {
 "200-Learning/210-Programing/Service Worker Cookbook.md": {
 	id: "200-Learning/210-Programing/Service Worker Cookbook.md";
   slug: "200-learning/210-programing/service-worker-cookbook";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/Things you forgot (or never knew) because of React.md": {
+	id: "200-Learning/210-Programing/Things you forgot (or never knew) because of React.md";
+  slug: "200-learning/210-programing/things-you-forgot-or-never-knew-because-of-react";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/《Software Engineering at Google》.md": {
+	id: "200-Learning/210-Programing/《Software Engineering at Google》.md";
+  slug: "200-learning/210-programing/software-engineering-at-google";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/《冒号课堂》.md": {
+	id: "200-Learning/210-Programing/《冒号课堂》.md";
+  slug: "200-learning/210-programing/冒号课堂";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/《程序人生》.md": {
+	id: "200-Learning/210-Programing/《程序人生》.md";
+  slug: "200-learning/210-programing/程序人生";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -325,16 +354,30 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/冒号课堂.md": {
-	id: "200-Learning/210-Programing/冒号课堂.md";
-  slug: "200-learning/210-programing/冒号课堂";
+"200-Learning/210-Programing/富文本编辑器相关资源.md": {
+	id: "200-Learning/210-Programing/富文本编辑器相关资源.md";
+  slug: "200-learning/210-programing/富文本编辑器相关资源";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
-"200-Learning/210-Programing/富文本编辑器相关资源.md": {
-	id: "200-Learning/210-Programing/富文本编辑器相关资源.md";
-  slug: "200-learning/210-programing/富文本编辑器相关资源";
+"200-Learning/210-Programing/打造无缝博客搭建流程：从Obsidian到GitHub Pages.md": {
+	id: "200-Learning/210-Programing/打造无缝博客搭建流程：从Obsidian到GitHub Pages.md";
+  slug: "200-learning/210-programing/打造无缝博客搭建流程从obsidian到github-pages";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/浏览器中的模块预加载.md": {
+	id: "200-Learning/210-Programing/浏览器中的模块预加载.md";
+  slug: "200-learning/210-programing/浏览器中的模块预加载";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/浏览器中的预加载扫描器.md": {
+	id: "200-Learning/210-Programing/浏览器中的预加载扫描器.md";
+  slug: "200-learning/210-programing/浏览器中的预加载扫描器";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -356,6 +399,13 @@ declare module 'astro:content' {
 "200-Learning/210-Programing/算法入门.md": {
 	id: "200-Learning/210-Programing/算法入门.md";
   slug: "200-learning/210-programing/算法入门";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"200-Learning/210-Programing/算法套路.md": {
+	id: "200-Learning/210-Programing/算法套路.md";
+  slug: "200-learning/210-programing/算法套路";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">
@@ -454,6 +504,20 @@ declare module 'astro:content' {
 "Calendar/Daily notes/2023-07-10.md": {
 	id: "Calendar/Daily notes/2023-07-10.md";
   slug: "calendar/daily-notes/2023-07-10";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Calendar/Daily notes/2023-08-21.md": {
+	id: "Calendar/Daily notes/2023-08-21.md";
+  slug: "calendar/daily-notes/2023-08-21";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
+"Calendar/Daily notes/2023-08-30.md": {
+	id: "Calendar/Daily notes/2023-08-30.md";
+  slug: "calendar/daily-notes/2023-08-30";
   body: string;
   collection: "blog";
   data: InferEntrySchema<"blog">

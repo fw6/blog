@@ -7,6 +7,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@consts'
 import type { CollectionEntry } from 'astro:content'
 import BlogItem from '@components/BlogItem.astro'
 import { slugify } from '@utils/slugify'
+import { ViewTransitions } from 'astro:transitions'
 
 export interface Props {
     subpath: 'notes' | 'writings'
@@ -24,6 +25,7 @@ const next = pageNum < totalPages ? '' : 'disabled'
 <html lang="en">
     <head>
         <BaseHead title={`Posts | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+        <ViewTransitions />
         <style>
             html,
             body {
