@@ -1,52 +1,28 @@
-# Blog build by Astro
+# Mekhi's Blog build by Astro
 
-## Initial Setup
+> [!WARNING]
+> Just upgraded to astro3.x, use it with caution.
 
-1. Clone this repo and run `git submodule update --init --recursive` to pull in the theme submodule.
-2.
+This repository hosts the source code for a personal blog system built using Astro. The system leverages GitHub workflows to automate the build process and utilizes GitHub Pages for deployment. Blog articles are managed in separate repositories and synchronized using Git submodules. Whenever new commits are made to the blog article repository, it triggers an automatic build and deployment process for this repository.
 
-## 🚀 Project Structure
+Features:
 
-Inside of your Astro project, you'll see the following folders and files:
+Astro-Powered Blogging: This system is built on top of the Astro framework, allowing for efficient rendering and delivery of blog content.
 
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
+Automated Build and Deployment: GitHub Actions workflows have been set up to automatically trigger the build process whenever changes are pushed to this repository. The generated output is then deployed using GitHub Pages.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Git Submodule Integration: The blog articles themselves reside in separate repositories, which are linked to this main repository as submodules. This ensures that article updates trigger the build process here.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Easy Customization: The codebase is designed to be customizable, enabling you to tailor the look and feel of your blog to your preferences.
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+Responsive Design: The blog system is designed with responsiveness in mind, ensuring optimal viewing experiences across various devices and screen sizes.
 
-Any static assets, like images, can be placed in the `public/` directory.
+**Features**:
+- **Astro-Powered Blogging**: This system is built on top of the Astro framework, allowing for efficient rendering and delivery of blog content.
+- **Automated Build and Deployment**: GitHub Actions workflows have been set up to automatically trigger the build process whenever changes are pushed to this repository. The generated output is then deployed using GitHub Pages.
+- **Git Submodule Integration**: The blog articles themselves reside in separate repositories, which are linked to this main repository as submodules. This ensures that article updates trigger the build process here.
+- **Easy Customization**: The codebase is designed to be customizable, enabling you to tailor the look and feel of your blog to your preferences.
+- **Responsive Design**: The blog system is designed with responsiveness in mind, ensuring optimal viewing experiences across various devices and screen sizes.
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `pnpm i`               | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:3000`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+**Automated Build and Deployment**:
+> GitHub Actions workflows are set up to automatically build and deploy the blog system whenever changes are detected in the main repository or in the linked submodule repository. The deployment target is GitHub Pages, configured to serve content from the main branch.
