@@ -3,7 +3,7 @@ const primaryColorScheme = ""; // "winter" | "dracula"
 // Get theme data from local storage
 const currentTheme = localStorage.getItem("theme");
 
-function getPreferTheme() {
+function getPreferTheme () {
     // return theme value in local storage if it is set
     if (currentTheme) return currentTheme;
 
@@ -16,12 +16,12 @@ function getPreferTheme() {
 
 let themeValue = getPreferTheme();
 
-function setPreference() {
+function setPreference () {
     localStorage.setItem("theme", themeValue);
     reflectPreference();
 }
 
-function reflectPreference() {
+function reflectPreference () {
     document.firstElementChild.setAttribute("data-theme", themeValue);
 
     document.querySelector("#theme-btn")?.setAttribute("aria-label", themeValue);
@@ -30,7 +30,7 @@ function reflectPreference() {
 // set early so no page flashes / CSS is made aware
 reflectPreference();
 
-window.onload = () => {
+const initThemeEvents = () => {
     // set on load so screen readers can get the latest value on the button
     reflectPreference();
 
@@ -40,6 +40,11 @@ window.onload = () => {
         setPreference();
     });
 };
+
+window.onload = initThemeEvents;
+
+// sync with ViewTransition ended
+document.addEventListener('astro:after-swap', initThemeEvents);
 
 // sync with system changes
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches: isDark }) => {
