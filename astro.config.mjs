@@ -4,12 +4,17 @@ import svelte from "@astrojs/svelte";
 import tailwind from "@astrojs/tailwind";
 import remarkCalloutDirectives from "@microflash/remark-callout-directives";
 import compress from "astro-compress";
+import pagefind from "astro-pagefind";
 import preload from "astro-preload";
 import rome from "astro-rome";
+import remarkObsidianCallout from "remark-obsidian-callout";
+import externalize from "vite-plugin-externalize-dependencies";
+
 import { defineConfig } from "astro/config";
+
+import a11yEmoji from "@fec/remark-a11y-emoji";
 import { toString as mdastToString } from "mdast-util-to-string";
 import getReadingTime from "reading-time";
-import a11yEmoji from "@fec/remark-a11y-emoji";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeStringify from "rehype-stringify";
 import remarkDirectives from "remark-directive";
@@ -18,12 +23,43 @@ import { remarkLayoutDirective } from "./unified-plugins/remark-layout-directive
 
 // https://astro.build/config
 export default defineConfig({
+    site: "https://fw6.github.io/blog",
+
+    build: {
+        format: "file",
+    },
+
     server: {
         port: 5757,
         host: true,
     },
-    site: "https://fw6.github.io/blog",
-    integrations: [svelte(), preload(), compress(), rome(), mdx(), sitemap(), tailwind()],
+
+    vite: {
+        server: {
+            watch: {
+                ignored: ["**/_obsidian/**/*"],
+                ignored: ["**/.obsidian/**/*"],
+            },
+        },
+        plugins: [
+            externalize({
+                externals: [
+                    (moduleName) => moduleName.includes("obsidian"),
+                ],
+            }),
+        ],
+    },
+
+    integrations: [
+        svelte(),
+        preload(),
+        compress(),
+        rome(),
+        mdx(),
+        sitemap(),
+        tailwind(),
+        pagefind()
+    ],
     markdown: {
         syntaxHighlight: false,
         remarkPlugins: [
@@ -36,6 +72,8 @@ export default defineConfig({
             },
 
             remarkDirectives,
+
+            remarkObsidianCallout,
             [
                 remarkCalloutDirectives,
                 {

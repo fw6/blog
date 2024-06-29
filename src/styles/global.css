@@ -4,3 +4,148 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 @import 'lxgw-wenkai-screen-webfont/style.css';
+
+blockquote[data-callout] {
+    @apply p-3 my-4 border-l-0 rounded mix-blend-darken not-italic font-mono;
+
+    .callout-title {
+        @apply flex items-start gap-1;
+
+        .callout-title-icon {
+            @apply flex items-center self-stretch text-lg;
+
+            svg {
+                width: 1em;
+                height: 1em;
+            }
+        }
+
+        .callout-title-text {
+            @apply font-bold;
+        }
+
+        /* callout content */
+        & + div {
+            @apply bg-slate-50 text-slate-700 whitespace-pre-wrap text-base hyphens-none py-3 px-4 min-h-8 rounded my-4;
+        }
+
+    }
+
+    &[data-callout="note"] {
+        @apply bg-blue-300/20;
+
+        .callout-title {
+            @apply text-blue-600;
+        }
+    }
+
+    &[data-callout="summary"],
+    &[data-callout="tldr"],
+    &[data-callout="abstract"] {
+        @apply bg-teal-300/20;
+
+        .callout-title {
+            @apply text-teal-600;
+        }
+    }
+
+    &[data-callout="info"] {
+        @apply bg-sky-300/20;
+
+        .callout-title {
+            @apply text-sky-600;
+        }
+    }
+
+    &[data-callout="todo"] {
+        @apply bg-blue-300/20;
+
+        .callout-title {
+            @apply text-blue-600;
+        }
+    }
+
+    &[data-callout="important"],
+    &[data-callout="hint"],
+    &[data-callout="tip"] {
+        @apply bg-cyan-300/20;
+
+        .callout-title {
+            @apply text-cyan-500;
+        }
+    }
+
+    &[data-callout="success"],
+    &[data-callout="done"],
+    &[data-callout="check"] {
+        @apply bg-green-300/20;
+
+        .callout-title {
+            @apply text-green-600;
+        }
+    }
+
+    &[data-callout="faq"],
+    &[data-callout="help"],
+    &[data-callout="question"] {
+        @apply bg-orange-300/10;
+
+        .callout-title {
+            @apply text-orange-600;
+        }
+    }
+
+    &[data-callout="attention"],
+    &[data-callout="caution"],
+    &[data-callout="warning"] {
+        @apply bg-orange-300/20;
+
+        .callout-title {
+            @apply text-orange-600;
+        }
+    }
+
+    &[data-callout="missing"],
+    &[data-callout="fail"],
+    &[data-callout="failure"] {
+        @apply bg-red-300/20;
+
+        .callout-title {
+            @apply text-red-600;
+        }
+    }
+
+    &[data-callout="error"],
+    &[data-callout="danger"] {
+        @apply bg-red-300/30;
+
+        .callout-title {
+            @apply text-red-600;
+        }
+    }
+
+    &[data-callout="bug"] {
+        @apply bg-red-300/20;
+
+        .callout-title {
+            @apply text-red-500;
+        }
+    }
+
+    &[data-callout="example"] {
+        @apply bg-violet-200/30;
+
+        .callout-title {
+            @apply text-violet-600;
+        }
+    }
+
+    &[data-callout="cite"],
+    &[data-callout="quote"] {
+        @apply bg-neutral-200/40;
+
+        .callout-title {
+            @apply text-neutral-500;
+        }
+    }
+}

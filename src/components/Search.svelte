@@ -19,6 +19,8 @@
     /** @type {HTMLInputElement} */
     let inputRef;
 
+    let usePagefind = false;
+
     const handleSearch = () => {
         if (query.length > 1) queryResults = fuse.search(query);
         else queryResults = [];
@@ -49,12 +51,26 @@
 </script>
 
 <div class="mt-8 form-control">
+    <label class="mb-1 label cursor-pointer justify-start">
+        <span class="label-text mr-2">Search by pagefind</span>
+        <input
+            type="checkbox"
+            class="toggle toggle-primary"
+            bind:checked={usePagefind}
+        />
+    </label>
+
+    <div class:hidden={!usePagefind}>
+        <slot name="pagefind" />
+    </div>
+
     <input
         bind:this={inputRef}
         bind:value={query}
         autocomplete="off"
         type="text"
         placeholder="Search for anything..."
+        class:hidden={usePagefind}
         class="input input-lg input-bordered input-primary w-full block placeholder:italic"
         on:keydown={(e) => e.code === "Enter" && handleSearch()}
         on:blur={() => handleSearch()}

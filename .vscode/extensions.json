@@ -1,11 +1,22 @@
 {
     "recommendations": [
+        "usernamehw.errorlens",
+        "streetsidesoftware.code-spell-checker",
+        "EditorConfig.EditorConfig",
         "astro-build.astro-vscode",
-        "rome.rome",
-        "unifiedjs.vscode-mdx"
+        "astro-build.astro-vscode",
+        "biomejs.biome",
+        "unifiedjs.vscode-mdx",
+        "yzhang.markdown-all-in-one",
+        "heybourn.headwind",
+        "svelte.svelte-vscode",
+        "ardenivanov.svelte-intellisense",
+        "bradlc.vscode-tailwindcss"
     ],
     "unwantedRecommendations": [
         "Vue.volar",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
         "Vue.vscode-typescript-vue-plugin"
     ]
 }
