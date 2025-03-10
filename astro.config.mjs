@@ -6,7 +6,6 @@ import remarkCalloutDirectives from "@microflash/remark-callout-directives";
 import pagefind from "astro-pagefind";
 import remarkObsidianCallout from "remark-obsidian-callout";
 import UnoCSS from "unocss/astro";
-// import externalize from "vite-plugin-externalize-dependencies";
 
 import { defineConfig } from "astro/config";
 
@@ -48,13 +47,6 @@ export default defineConfig({
         ssr: {
             noExternal: ["@microflash/remark-callout-directives"],
         },
-        // plugins: [
-        //     externalize({
-        //         externals: [
-        //             (moduleName) => moduleName.includes("obsidian"),
-        //         ],
-        //     }),
-        // ],
     },
 
     adapter: cloudflare(),

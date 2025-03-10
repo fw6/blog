@@ -31,16 +31,7 @@
         "**/dist": true,
         "**/yarn.lock": true
     },
-    "cSpell.words": ["Astro", "astrojs", "consts", "daisyui"],
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
+    "editor.defaultFormatter": "biomejs.biome",
     "js/ts.implicitProjectConfig.checkJs": true,
     "mdx.experimentalLanguageServer": true,
     "window.title": ""

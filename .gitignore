@@ -297,5 +297,5 @@ vite.config.ts.timestamp-*
 blog/.obdisian
 blog/.gitignore
 blog/cedict_ts.u8
-
+.wrangler
 # #endregion
