@@ -14,7 +14,7 @@
     "search.exclude": {
         "**/.git": true,
         "**/.github": true,
-        "**/.nuxt": true,
+        "**/.astro": true,
         "**/.output": true,
         "**/.pnpm": true,
         "**/.vscode": true,
@@ -31,12 +31,7 @@
         "**/dist": true,
         "**/yarn.lock": true
     },
-    "cSpell.words": [
-        "Astro",
-        "astrojs",
-        "consts",
-        "daisyui"
-    ],
+    "cSpell.words": ["Astro", "astrojs", "consts", "daisyui"],
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
@@ -44,7 +39,7 @@
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "rome.rome"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "js/ts.implicitProjectConfig.checkJs": true,
     "mdx.experimentalLanguageServer": true,

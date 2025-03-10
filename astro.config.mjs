@@ -1,14 +1,12 @@
+import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
-import tailwind from "@astrojs/tailwind";
 import remarkCalloutDirectives from "@microflash/remark-callout-directives";
-import compress from "astro-compress";
 import pagefind from "astro-pagefind";
-import preload from "astro-preload";
-import rome from "astro-rome";
 import remarkObsidianCallout from "remark-obsidian-callout";
-import externalize from "vite-plugin-externalize-dependencies";
+import UnoCSS from "unocss/astro";
+// import externalize from "vite-plugin-externalize-dependencies";
 
 import { defineConfig } from "astro/config";
 
@@ -21,9 +19,9 @@ import remarkDirectives from "remark-directive";
 import remarkToc from "remark-toc";
 import { remarkLayoutDirective } from "./unified-plugins/remark-layout-directive.mjs";
 
-// https://astro.build/config
 export default defineConfig({
-    site: "https://fw6.github.io/blog",
+    site: "https://blog.fengw.site",
+    output: "server",
 
     build: {
         format: "file",
@@ -37,39 +35,49 @@ export default defineConfig({
     vite: {
         server: {
             watch: {
-                ignored: ["**/_obsidian/**/*"],
-                ignored: ["**/.obsidian/**/*"],
+                ignored: ["**/_obsidian/**/*", "**/.obsidian/**/*"],
             },
         },
-        plugins: [
-            externalize({
-                externals: [
-                    (moduleName) => moduleName.includes("obsidian"),
-                ],
-            }),
-        ],
+        css: {
+            transformer: "lightningcss",
+        },
+        build: {
+            cssMinify: "lightningcss",
+            minify: false,
+        },
+        ssr: {
+            noExternal: ["@microflash/remark-callout-directives"],
+        },
+        // plugins: [
+        //     externalize({
+        //         externals: [
+        //             (moduleName) => moduleName.includes("obsidian"),
+        //         ],
+        //     }),
+        // ],
     },
 
+    adapter: cloudflare(),
     integrations: [
+        UnoCSS({
+            injectReset: true,
+        }),
         svelte(),
-        preload(),
-        compress(),
-        rome(),
         mdx(),
         sitemap(),
-        tailwind(),
-        pagefind()
+        pagefind(),
     ],
     markdown: {
         syntaxHighlight: false,
         remarkPlugins: [
             remarkToc,
             a11yEmoji,
-            () => (tree, { data }) => {
-                const textOnPage = mdastToString(tree);
-                const readingTime = getReadingTime(textOnPage);
-                data.astro.frontmatter.minutesRead = readingTime.text;
-            },
+            () =>
+                (tree, { data }) => {
+                    const textOnPage = mdastToString(tree);
+                    const readingTime = getReadingTime(textOnPage);
+                    data.astro.frontmatter.minutesRead = readingTime.text;
+                },
 
             remarkDirectives,
 
@@ -131,10 +139,7 @@ export default defineConfig({
         },
         rehypePlugins: [
             rehypePrettyCode,
-            [
-                rehypeStringify,
-                { allowDangerousHtml: true }
-            ]
+            [rehypeStringify, { allowDangerousHtml: true }],
         ],
         shikiConfig: {
             theme: "dracula",

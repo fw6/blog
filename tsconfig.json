@@ -1,41 +1,21 @@
 {
-    "extends": "astro/tsconfigs/base",
+    "extends": "astro/tsconfigs/strict",
     "compilerOptions": {
         "baseUrl": ".",
         "verbatimModuleSyntax": true,
         "strictNullChecks": true,
         "moduleResolution": "Bundler",
         "paths": {
-            "@assets/*": [
-                "src/assets/*"
-            ],
-            "@consts": [
-                "src/consts.ts"
-            ],
-            "@components/*": [
-                "src/components/*"
-            ],
-            "@content/*": [
-                "src/content/*"
-            ],
-            "@layouts/*": [
-                "src/layouts/*"
-            ],
-            "@pages/*": [
-                "src/pages/*"
-            ],
-            "@styles/*": [
-                "src/styles/*"
-            ],
-            "@utils/*": [
-                "src/utils/*"
-            ]
+            "@assets/*": ["src/assets/*"],
+            "@consts": ["src/consts.ts"],
+            "@components/*": ["src/components/*"],
+            "@content/*": ["src/content/*"],
+            "@layouts/*": ["src/layouts/*"],
+            "@pages/*": ["src/pages/*"],
+            "@styles/*": ["src/styles/*"],
+            "@utils/*": ["src/utils/*"]
         }
     },
-    "exclude": [
-        "node_modules",
-        "dist",
-        "_obsidian",
-        ".obsidian"
-    ]
+    "include": [".astro/types.d.ts", "**/*"],
+    "exclude": ["node_modules", "dist", "_obsidian", ".obsidian"]
 }

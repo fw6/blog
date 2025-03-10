@@ -1,6 +1,6 @@
 ---
-type Props = { class?: string }
-const { class: className } = Astro.props
+type Props = { class?: string };
+const { class: className } = Astro.props;
 ---
 
 <div class:list={[className]} class="align-text-bottom overflow-hidden cursor-pointer relative theme-switcher inline-block bg-no-repeat bg-[length:200%_100%]" id="theme-btn"></div>
@@ -12,7 +12,11 @@ const { class: className } = Astro.props
         background: radial-gradient(circle at 18% 0.625em, #fff, #fff 0.1875em, transparent 0.21875em, transparent), radial-gradient(circle at 35% 1.40625em, #fff, #fff 0.03125em, transparent 0.0625em, transparent), radial-gradient(circle at 10% 2.1875em, #fff, #fff 0.078125em, transparent 0.109375em, transparent), radial-gradient(circle at 25% 0.46875em, #fff, #fff 0.09375em, transparent 0.125em, transparent), radial-gradient(circle at 15% 1.5625em, #fff, #fff 0.046875em, transparent 0.078125em, transparent), radial-gradient(circle at 30% 2.34375em, #fff, #fff 0.15625em, transparent 0.1875em, transparent), radial-gradient(circle at 5% 0.9375em, #fff, #fff 0.015625em, transparent 0.046875em, transparent), radial-gradient(circle at 25% 1.875em, #fff, #fff 0.015625em, transparent 0.046875em, transparent), radial-gradient(circle at 7% 1.09375em, #fff, #fff 0.015625em, transparent 0.046875em, transparent), linear-gradient(90deg, #2b303e, #2b303e 50%, #5a81b4 50%, #5a81b4);
         background-position: 100% 0;
         border-radius: 999px;
-        box-shadow: 0 -0.09375em 0.125em #999, inset 0 0.09375em 0.15625em #333, 0 0.125em 0.125em #ffe, inset 0 -0.09375em 0.15625em #ddd;
+        box-shadow:
+            0 -0.09375em 0.125em #999,
+            inset 0 0.09375em 0.15625em #333,
+            0 0.125em 0.125em #ffe,
+            inset 0 -0.09375em 0.15625em #ddd;
         transition: 0.5s all;
         font-size: 0.5em;
 
@@ -28,7 +32,10 @@ const { class: className } = Astro.props
             border-radius: 50%;
             background: #e9cb50;
             inset: 0.234375em;
-            box-shadow: 0 0 0.15625em #333, inset 0.0625em 0.0625em 0.09375em #f8f4e4, inset -0.0625em -0.0625em 0.09375em #665613;
+            box-shadow:
+                0 0 0.15625em #333,
+                inset 0.0625em 0.0625em 0.09375em #f8f4e4,
+                inset -0.0625em -0.0625em 0.09375em #665613;
             z-index: 1;
         }
         &::after {
@@ -36,7 +43,22 @@ const { class: className } = Astro.props
             height: 2.1875em;
             inset: 0.3125em;
             border-radius: 50%;
-            box-shadow: 0.3125em 1.875em 0 0.3125em #fff, 2.03125em 1.875em 0 0.15625em #fff, 2.96875em 2.1875em 0 0.3125em #fff, 4.21875em 1.40625em 0 0.15625em #fff, 5.3125em 1.09375em 0 0.3125em #fff, 6.09375em -0.15625em 0 0.3125em #fff, -0.3125em 0 0 1.5625em rgba(255, 255, 255, 0.2), 0.46875em 0 0 1.5625em rgba(255, 255, 255, 0.15), 1.25em 0 0 1.5625em rgba(255, 255, 255, 0.21), 0.3125em 1.25em 0 0.3125em #abc1d9, 2.1875em 1.09375em 0 0.3125em #abc1d9, 2.96875em 1.25em 0 0.3125em #abc1d9, 4.21875em 0.625em 0 0.3125em #abc1d9, 4.84375em 0.46875em 0 0.3125em #abc1d9, 5.9375em -0.625em 0 0.3125em #abc1d9;
+            box-shadow:
+                0.3125em 1.875em 0 0.3125em #fff,
+                2.03125em 1.875em 0 0.15625em #fff,
+                2.96875em 2.1875em 0 0.3125em #fff,
+                4.21875em 1.40625em 0 0.15625em #fff,
+                5.3125em 1.09375em 0 0.3125em #fff,
+                6.09375em -0.15625em 0 0.3125em #fff,
+                -0.3125em 0 0 1.5625em rgba(255, 255, 255, 0.2),
+                0.46875em 0 0 1.5625em rgba(255, 255, 255, 0.15),
+                1.25em 0 0 1.5625em rgba(255, 255, 255, 0.21),
+                0.3125em 1.25em 0 0.3125em #abc1d9,
+                2.1875em 1.09375em 0 0.3125em #abc1d9,
+                2.96875em 1.25em 0 0.3125em #abc1d9,
+                4.21875em 0.625em 0 0.3125em #abc1d9,
+                4.84375em 0.46875em 0 0.3125em #abc1d9,
+                5.9375em -0.625em 0 0.3125em #abc1d9;
         }
 
         &:hover::before {
@@ -53,7 +75,22 @@ const { class: className } = Astro.props
             }
             &::after {
                 transform: translate(4.0625em);
-                box-shadow: 0.3125em 1.875em 0 0.3125em transparent, 2.03125em 1.875em 0 0.15625em transparent, 2.96875em 2.1875em 0 0.3125em transparent, 4.21875em 1.40625em 0 0.15625em transparent, 5.3125em 1.09375em 0 0.3125em transparent, 6.09375em -0.15625em 0 0.3125em transparent, 0.3125em 0 0 1.5625em rgba(255, 255, 255, 0.2), -0.46875em 0 0 1.5625em rgba(255, 255, 255, 0.15), -1.25em 0 0 1.5625em rgba(255, 255, 255, 0.21), 0.3125em 1.25em 0 0.3125em transparent, 2.1875em 1.09375em 0 0.3125em transparent, 2.96875em 1.25em 0 0.3125em transparent, 4.21875em 0.625em 0 0.3125em transparent, 4.84375em 0.46875em 0 0.3125em transparent, 5.9375em -0.625em 0 0.3125em transparent;
+                box-shadow:
+                    0.3125em 1.875em 0 0.3125em transparent,
+                    2.03125em 1.875em 0 0.15625em transparent,
+                    2.96875em 2.1875em 0 0.3125em transparent,
+                    4.21875em 1.40625em 0 0.15625em transparent,
+                    5.3125em 1.09375em 0 0.3125em transparent,
+                    6.09375em -0.15625em 0 0.3125em transparent,
+                    0.3125em 0 0 1.5625em rgba(255, 255, 255, 0.2),
+                    -0.46875em 0 0 1.5625em rgba(255, 255, 255, 0.15),
+                    -1.25em 0 0 1.5625em rgba(255, 255, 255, 0.21),
+                    0.3125em 1.25em 0 0.3125em transparent,
+                    2.1875em 1.09375em 0 0.3125em transparent,
+                    2.96875em 1.25em 0 0.3125em transparent,
+                    4.21875em 0.625em 0 0.3125em transparent,
+                    4.84375em 0.46875em 0 0.3125em transparent,
+                    5.9375em -0.625em 0 0.3125em transparent;
             }
         }
     }

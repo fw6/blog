@@ -1,13 +1,18 @@
 ---
-import type { HTMLAttributes } from 'astro/types'
+import type { HTMLAttributes } from "astro/types";
 
-type Props = HTMLAttributes<'a'>
+type Props = HTMLAttributes<"a">;
 
-const { href, class: className, ...props } = Astro.props
+const { href, class: className, ...props } = Astro.props;
 
-const { pathname } = Astro.url
-const isActive = href === pathname || href === pathname.replace(import.meta.env.BASE_URL, '')
-const linkHref = typeof href === 'string' && /(^https?:\/\/)/gm.test(href) ? href : import.meta.env.BASE_URL.replace(/\/$/, '') + href
+const { pathname } = Astro.url;
+const isActive =
+    href === pathname ||
+    href === pathname.replace(import.meta.env.BASE_URL, "");
+const linkHref =
+    typeof href === "string" && /(^https?:\/\/)/gm.test(href)
+        ? href
+        : import.meta.env.BASE_URL.replace(/\/$/, "") + href;
 ---
 
 <a href={linkHref} class="link" class:list={[className, { active: isActive }]} {...props}>
@@ -16,9 +21,9 @@ const linkHref = typeof href === 'string' && /(^https?:\/\/)/gm.test(href) ? hre
 
 <style>
     a.link {
-        @apply no-underline;
+        --at-apply: no-underline;
         &.active {
-            @apply underline decoration-wavy decoration-2 underline-offset-4;
+            --at-apply: underline decoration-wavy decoration-2 underline-offset-4;
         }
     }
 </style>

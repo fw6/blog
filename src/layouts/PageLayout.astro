@@ -1,12 +1,12 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import Breadcrumbs from '../components/Breadcrumbs.astro'
+import BaseHead from "../components/BaseHead.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
-type Props = { title: string; description: string }
+type Props = { title: string; description?: string | null };
 
-const { title, description } = Astro.props
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
@@ -17,7 +17,10 @@ const { title, description } = Astro.props
             body {
                 height: 100%;
             }
-            :global(body > *) {
+        </style>
+
+        <style is:global>
+            body > * {
                 width: 100%;
             }
         </style>

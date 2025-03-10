@@ -7,7 +7,7 @@ export const SITE_TITLE = "Mekhi's blog";
 export const SITE_DESCRIPTION = "Welcome to my blog!";
 
 export const SITE: Site = {
-    website: "https://fw6.github.io/blog/",
+    website: "https://blog.fengw.site",
     author: "Mekhi",
     desc: "A responsive and SEO-friendly blog website.",
     title: "Mekhi's blog.",

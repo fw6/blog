@@ -1,26 +1,26 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '@consts'
-import ThemeSwitcher from '@components/ThemeSwitcher.astro'
-import BaseHead from '@components/BaseHead.astro'
+import BaseHead from "@components/BaseHead.astro";
+import ThemeSwitcher from "@components/ThemeSwitcher.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@consts";
 
 const links = [
     {
-        path: 'writings',
-        title: 'Writings',
+        path: "writings",
+        title: "Writings",
     },
     {
-        path: 'notes',
-        title: 'Notes',
+        path: "notes",
+        title: "Notes",
     },
     {
-        path: 'tags',
-        title: 'tags',
+        path: "tags",
+        title: "tags",
     },
     {
-        path: 'about',
-        title: 'About',
+        path: "about",
+        title: "About",
     },
-]
+];
 ---
 
 <html lang="en">
@@ -31,12 +31,15 @@ const links = [
             body {
                 height: 100%;
             }
-            :global(body > *) {
-                width: 100%;
-            }
 
             ul > li > a {
                 box-shadow: 4px 4px;
+            }
+        </style>
+
+        <style is:global>
+            body > * {
+                width: 100%;
             }
         </style>
     </head>

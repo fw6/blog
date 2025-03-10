@@ -1,24 +1,28 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'
-import PostDetail from '@layouts/PostDetail.astro'
-import type { GetStaticPaths } from 'astro'
-import { slugify } from '@utils/slugify'
+import { type CollectionEntry, getCollection } from "astro:content";
+import PostDetail from "@layouts/PostDetail.astro";
+import { slugify } from "@utils/slugify";
+import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (async () => {
-    const posts = await getCollection('blog', ({ data }) => data.draft !== true)
+    const posts = await getCollection(
+        "blog",
+        ({ data }) => data.draft !== true,
+    );
 
     return posts.map((post) => ({
         params: { slug: slugify(post.data) },
         props: { post },
-    }))
-}) satisfies GetStaticPaths
+    }));
+}) satisfies GetStaticPaths;
 
 type Props = {
-    post: CollectionEntry<'blog'>
-}
+    post: CollectionEntry<"blog">;
+};
 
-const { post } = Astro.props
-const { Content, remarkPluginFrontmatter } = await post.render()
+const { post } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await post.render();
+export const prerender = true;
 ---
 
 <PostDetail {...post.data} minutesRead={remarkPluginFrontmatter.minutesRead}>

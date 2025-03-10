@@ -1,24 +1,24 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import Breadcrumbs from '../components/Breadcrumbs.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '@consts'
-import type { CollectionEntry } from 'astro:content'
-import BlogItem from '@components/BlogItem.astro'
-import { slugify } from '@utils/slugify'
+import type { CollectionEntry } from "astro:content";
+import BlogItem from "@components/BlogItem.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "@consts";
+import { slugify } from "@utils/slugify";
+import BaseHead from "../components/BaseHead.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 export interface Props {
-    subpath: 'notes' | 'writings'
-    pageNum: number
-    totalPages: number
-    posts: CollectionEntry<'blog'>[]
+    subpath: "notes" | "writings";
+    pageNum: number;
+    totalPages: number;
+    posts: CollectionEntry<"blog">[];
 }
 
-const { pageNum, totalPages, posts, subpath = 'writings' } = Astro.props
+const { pageNum, totalPages, posts, subpath = "writings" } = Astro.props;
 
-const prev = pageNum > 1 ? '' : 'disabled'
-const next = pageNum < totalPages ? '' : 'disabled'
+const prev = pageNum > 1 ? "" : "disabled";
+const next = pageNum < totalPages ? "" : "disabled";
 ---
 
 <html lang="en">
@@ -29,7 +29,9 @@ const next = pageNum < totalPages ? '' : 'disabled'
             body {
                 height: 100%;
             }
-            :global(body > *) {
+        </style>
+        <style is:global>
+            body > * {
                 width: 100%;
             }
         </style>

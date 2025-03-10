@@ -14,7 +14,10 @@ import { visit } from "unist-util-visit";
 export function remarkLayoutDirective() {
     return (tree) => {
         visit(tree, (node) => {
-            if (node.type === "leafDirective" || node.type === "containerDirective") {
+            if (
+                node.type === "leafDirective" ||
+                node.type === "containerDirective"
+            ) {
                 if (node.name !== "column") return;
 
                 node.data ||= {};

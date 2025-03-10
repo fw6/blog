@@ -1,10 +1,10 @@
 ---
 export interface Props {
-    name: string
-    size?: 'sm' | 'lg'
+    name: string;
+    size?: "sm" | "lg";
 }
 
-const { name, size = 'sm' } = Astro.props
+const { name, size = "sm" } = Astro.props;
 ---
 
 <li class={`inline-block ${size === 'sm' ? 'my-1 underline-offset-4' : 'my-3 mx-1 underline-offset-8'}`}>
@@ -15,9 +15,9 @@ const { name, size = 'sm' } = Astro.props
 
 <style>
     /* a {
-        @apply relative underline decoration-dashed hover:-top-0.5 hover:text-primary-focus focus-visible:p-1;
+        --at-apply:  relative underline decoration-dashed hover:-top-0.5 hover:text-primary-focus focus-visible:p-1;
     }
     a svg {
-        @apply inline-block -mr-5 h-6 w-6 scale-95 text-primary-content opacity-80 group-hover:fill-primary;
+        --at-apply:  inline-block -mr-5 h-6 w-6 scale-95 text-primary-content opacity-80 group-hover:fill-primary;
     } */
 </style>

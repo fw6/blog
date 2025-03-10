@@ -4,14 +4,13 @@
         "streetsidesoftware.code-spell-checker",
         "EditorConfig.EditorConfig",
         "astro-build.astro-vscode",
-        "astro-build.astro-vscode",
+        "antfu.unocss",
         "biomejs.biome",
         "unifiedjs.vscode-mdx",
         "yzhang.markdown-all-in-one",
         "heybourn.headwind",
         "svelte.svelte-vscode",
-        "ardenivanov.svelte-intellisense",
-        "bradlc.vscode-tailwindcss"
+        "ardenivanov.svelte-intellisense"
     ],
     "unwantedRecommendations": [
         "Vue.volar",
