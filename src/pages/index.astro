@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import BaseHead from "@components/BaseHead.astro";
 import ThemeSwitcher from "@components/ThemeSwitcher.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@consts";
+import profileImage from "../images/profile.png";
 
 const links = [
     {
@@ -49,11 +51,7 @@ const links = [
             <ThemeSwitcher class="" />
         </div>
 
-        <picture>
-            <source srcset={import.meta.env.BASE_URL + 'images/profile-pic.png'} media="(max-width: 799px)" />
-            <source srcset={import.meta.env.BASE_URL + 'images/profile-pic800w.jpg'} media="(min-width: 800px)" />
-            <img class="max-w-full m-auto border-4 border-black shadow-default" src={import.meta.env.BASE_URL + 'images/profile-pic.png'} alt="profile image" width="230" height="230" />
-        </picture>
+        <Image src={profileImage} alt="profile image" width="230" height="230" />
 
         <h1 class="mt-8 text-3xl">Mekhi 冯伟</h1>
         <h2 class="mb-8 text-2xl">Aspire to be a shining programmer.</h2>
