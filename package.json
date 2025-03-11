@@ -3,6 +3,7 @@
     "type": "module",
     "version": "0.0.1",
     "private": true,
+    "packageManager": "pnpm@10.6.2",
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
@@ -60,6 +61,11 @@
         "wrangler": "^3.112.0"
     },
     "pnpm": {
-        "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"]
+        "onlyBuiltDependencies": [
+            "@biomejs/biome",
+            "esbuild",
+            "sharp",
+            "workerd"
+        ]
     }
 }
